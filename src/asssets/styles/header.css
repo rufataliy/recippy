@@ -2,3 +2,14 @@
     background-color: var(--primary-medium);
     color: var(--primary-dark);
 }
+
+.logo {
+    height: 100%;
+    width: 100px;
+    margin: auto;
+    display: flex;
+}
+
+.logo img {
+    width: 100%;
+}
