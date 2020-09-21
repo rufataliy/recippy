@@ -1,0 +1,33 @@
+:root{
+    --primary-light:#F5FFF6;
+    --primary-medium:#B3E3CC;
+    --primary-dark:#1A8E79;
+    --padding-sm: 1rem;
+    --padding-md:2rem;
+    --padding-lg:2.5rem;
+    --font-reg:inherit;
+    --font-md:1.2rem;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary-dark);
+    border-radius: 8px;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+#root{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.MuiSvgIcon-root{
+    fill: var(--primary-dark) !important;
+}

@@ -12,6 +12,8 @@ export const Layout = () => {
       <Header toggleSidebar={toggleSidebar} />
       <Sidebar toggleSidebar={toggleSidebar} open={sidebarOpen} />
       <Search />
+      <ContentArea>
+      </ContentArea>
     </>
   );
 };
