@@ -13,7 +13,7 @@ export const Layout = () => {
         return res.json();
       })
       .then((data) => setRecipes(data.meals));
-  });
+  }, []);
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };

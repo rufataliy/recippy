@@ -1,5 +1,5 @@
 export { Header } from "./Header";
-export { Sidebar } from "./Sidebar";
+export { SideNav } from "./SideNav";
 export { SearchArea } from "./SearchArea";
 export { ContentArea } from "./ContentArea";
 export { Card } from "./Card";
