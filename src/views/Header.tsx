@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton } from "@material-ui/core";
 import { MenuIcon } from "./icons";
+import { logo } from "../asssets/img";
 import "../asssets/styles/header.css";
 
 interface Props {
@@ -19,7 +20,11 @@ export const Header: React.FC<Props> = ({ toggleSidebar }) => {
         >
           <MenuIcon />
         </IconButton>
-        <p>Logo</p>
+        <div className="logo">
+          <a href="/">
+            <img src={logo} alt="recippy logo" />
+          </a>
+        </div>
       </Toolbar>
     </AppBar>
   );
