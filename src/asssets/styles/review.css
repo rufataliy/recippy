@@ -1,0 +1,25 @@
+.review-area{
+    width:700px;
+    max-width: 70vw;
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+.review-img{
+    height:30vh;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.review-wrapper {
+    padding: 0 var(--padding-sm);
+}
+
+.review-area > * {
+    margin-bottom: var(--margin-sm);
+}
+
+.review-scroll{
+    overflow: auto;
+}

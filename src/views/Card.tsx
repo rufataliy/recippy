@@ -1,31 +1,29 @@
 import React from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import MUICard from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import "../asssets/styles/card.css";
 
 interface Props {
+  setSelectedRecipe?: (id: string) => void;
   recipe: {
     strMeal: string;
     strMealThumb: string;
+    idMeal: string;
   };
 }
 
-export const Card: React.FC<Props> = ({ recipe }) => {
-  const { strMeal, strMealThumb } = recipe;
+
+export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
+  const { strMeal, strMealThumb, idMeal } = recipe;
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -55,8 +53,8 @@ export const Card: React.FC<Props> = ({ recipe }) => {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
+        <IconButton onClick={() => setSelectedRecipe && setSelectedRecipe(idMeal)} aria-label="share">
+          See full
         </IconButton>
         <IconButton
           onClick={handleExpandClick}

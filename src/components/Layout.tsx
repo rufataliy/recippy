@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Header, Sidebar } from "../views";
+import { Header, SideNav, RecipeView } from "../views";
 import { Search } from "./search";
 import { ContentArea, Card } from "../views";
 
 export const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedRecipe, setSelectedRecipe] = useState("")
   const [recipes, setRecipes] = useState([]);
+
+  const reviewOpen = selectedRecipe !== ""
+
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=seafood")
       .then((res) => {
@@ -14,6 +18,7 @@ export const Layout = () => {
       })
       .then((data) => setRecipes(data.meals));
   }, []);
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -21,11 +26,12 @@ export const Layout = () => {
   return (
     <>
       <Header toggleSidebar={toggleSidebar} />
-      <Sidebar toggleSidebar={toggleSidebar} open={sidebarOpen} />
+      <SideNav toggleNav={toggleSidebar} open={sidebarOpen} />
+      <RecipeView idMeal={selectedRecipe} toggleView={() => setSelectedRecipe("")} open={reviewOpen} />
       <Search />
       <ContentArea>
         {recipes.length > 0 &&
-          recipes.map((recipe) => <Card recipe={recipe} />)}
+          recipes.map((recipe) => <Card setSelectedRecipe={(id: string) => setSelectedRecipe(id)} recipe={recipe} />)}
       </ContentArea>
     </>
   );
