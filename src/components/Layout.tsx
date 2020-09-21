@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { Header, Sidebar } from "../views";
 
 export const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -9,6 +9,7 @@ export const Layout = () => {
   return (
     <>
       <Header toggleSidebar={toggleSidebar} />
+      <Sidebar toggleSidebar={toggleSidebar} open={sidebarOpen} />
     </>
   );
 };
