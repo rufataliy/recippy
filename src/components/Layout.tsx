@@ -1,4 +1,5 @@
 import { Header, Sidebar } from "../views";
+import { Search } from "./search";
 
 export const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -10,6 +11,7 @@ export const Layout = () => {
     <>
       <Header toggleSidebar={toggleSidebar} />
       <Sidebar toggleSidebar={toggleSidebar} open={sidebarOpen} />
+      <Search />
     </>
   );
 };
