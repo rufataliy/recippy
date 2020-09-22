@@ -9,7 +9,13 @@
 .review-img {
   height: 30vh;
   min-height: 200px;
+  display: flex;
+  align-items: center;
   overflow: hidden;
+}
+
+.review-img img {
+  width: 100%;
 }
 
 .review-wrapper {
