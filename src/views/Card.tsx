@@ -27,6 +27,11 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
 
   const titleRef = useRef<HTMLParagraphElement>(null);
 
+  const saveRecipe = (id: string) => {
+    const ids = window.localStorage.getItem("recipes");
+    window.localStorage.setItem("recipes", ids ? ids + `,${id}` : id);
+  };
+
   return (
     <MUICard className="card">
       <CardMedia className="card-img" image={strMealThumb} title={strMeal} />
@@ -54,7 +59,10 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
       </CardContent>
       <CardActions style={{ justifyContent: "space-between" }}>
         <Tooltip title="Save">
-          <IconButton aria-label="save">
+          <IconButton
+            onClick={() => saveRecipe(recipe.idMeal)}
+            aria-label="save"
+          >
             <SaveIcon />
           </IconButton>
         </Tooltip>
