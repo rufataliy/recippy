@@ -1,25 +1,32 @@
-.review-area{
-    width:700px;
-    max-width: 70vw;
-    display:flex;
-    flex-direction: column;
-    height:100vh;
+.review-area {
+  width: 700px;
+  max-width: 70vw;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.review-img{
-    height:30vh;
-    min-height: 200px;
-    overflow: hidden;
+.review-img {
+  height: 30vh;
+  min-height: 200px;
+  overflow: hidden;
 }
 
 .review-wrapper {
-    padding: 0 var(--padding-sm);
+  padding: 0 var(--padding-sm);
+}
+.review-wrapper > *:not(:last-child) {
+  margin-bottom: var(--margin-sm) !important;
 }
 
 .review-area > * {
-    margin-bottom: var(--margin-sm);
+  margin-bottom: var(--margin-sm);
 }
 
-.review-scroll{
-    overflow: auto;
+.review-scroll {
+  overflow: auto;
+}
+
+.review-area .list-item {
+  border-bottom: 1px solid grey;
 }
