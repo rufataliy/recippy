@@ -8,4 +8,5 @@ export { default as FilterIcon } from "@material-ui/icons/FilterList";
 export { default as VideoIcon } from "@material-ui/icons/OndemandVideo";
 export { default as FlagIcon } from "@material-ui/icons/OutlinedFlag";
 export { default as ChevronRightIcon } from "@material-ui/icons/ChevronRight";
+export { default as SaveIcon } from "@material-ui/icons/Save";
 // export { default as ShareIcon } from "@material-ui/icons/Share";

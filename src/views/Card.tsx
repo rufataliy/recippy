@@ -10,7 +10,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import { ChevronRightIcon } from "./icons";
+import { ChevronRightIcon, SaveIcon } from "./icons";
 import "../asssets/styles/card.css";
 
 interface Props {
@@ -53,8 +53,8 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
         </Typography>
       </CardContent>
       <CardActions style={{ justifyContent: "space-between" }}>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="save">
+          <SaveIcon />
         </IconButton>
         <IconButton
           onClick={() => setSelectedRecipe && setSelectedRecipe(recipe.idMeal)}
