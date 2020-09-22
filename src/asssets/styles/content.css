@@ -1,20 +1,32 @@
 .content {
-    overflow: auto;
+  overflow: auto;
 }
 
-.content-inner{
-    width:80%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height: 100%;
-    margin: 0 auto;
-    padding-top: var(--padding-lg);
+.content-inner {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: var(--padding-lg);
 }
-.content-inner > *{
-    margin: 20px;
+.content-inner > * {
+  margin: 20px;
 }
 
-.content-inner .MuiTypography-h5{
-    font-size: 1.1rem;
+.content-inner .MuiTypography-h5 {
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 880px) {
+  .content-inner {
+    width: 95%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .content-inner {
+    width: 85%;
+  }
 }
