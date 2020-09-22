@@ -53,15 +53,21 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
         </Typography>
       </CardContent>
       <CardActions style={{ justifyContent: "space-between" }}>
-        <IconButton aria-label="save">
-          <SaveIcon />
-        </IconButton>
-        <IconButton
-          onClick={() => setSelectedRecipe && setSelectedRecipe(recipe.idMeal)}
-          aria-label="see more"
-        >
-          <ChevronRightIcon />
-        </IconButton>
+        <Tooltip title="Save">
+          <IconButton aria-label="save">
+            <SaveIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="See the recipe">
+          <IconButton
+            onClick={() =>
+              setSelectedRecipe && setSelectedRecipe(recipe.idMeal)
+            }
+            aria-label="see more"
+          >
+            <ChevronRightIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </MUICard>
   );

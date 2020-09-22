@@ -1,46 +1,50 @@
-:root{
-    --primary-light:#F5FFF6;
-    --primary-medium:#B3E3CC;
-    --primary-dark:#1A8E79;
-    --padding-sm: 1rem;
-    --padding-md:2rem;
-    --padding-lg:2.5rem;
-    --margin-sm: 1.5rem;
-    --margin-md:2.3rem;
-    --margin-lg:2.7rem;
-    --font-reg:inherit;
-    --font-md:1.2rem;
+:root {
+  --primary-light: #f5fff6;
+  --primary-medium: #b3e3cc;
+  --primary-dark: #1a8e79;
+  --padding-sm: 1rem;
+  --padding-md: 2rem;
+  --padding-lg: 2.5rem;
+  --margin-sm: 1.5rem;
+  --margin-md: 2.3rem;
+  --margin-lg: 2.7rem;
+  --font-reg: inherit;
+  --font-md: 1.2rem;
 }
 
-::-webkit-scrollbar{
-    width: 15px;
+::-webkit-scrollbar {
+  width: 15px;
 }
-::-webkit-scrollbar-thumb{
-    background-color: var(--primary-dark);
-    border-radius: 8px;
-}
-
-*{
-    margin:0;
-    padding:0;
-}
-#root{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-dark);
+  border-radius: 8px;
 }
 
-.MuiSvgIcon-root{
-    fill: var(--primary-dark) !important;
+* {
+  margin: 0;
+  padding: 0;
+}
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.MuiSvgIcon-root {
+  fill: var(--primary-dark) !important;
 }
 
 /* Utilities */
 
-.text-right{
-    text-align: right;
+.text-right {
+  text-align: right;
 }
 
-.custom-icon{
-    height:1.1rem;
+.custom-icon {
+  height: 1.1rem;
+}
+
+.tooltip {
+  color: red;
 }
