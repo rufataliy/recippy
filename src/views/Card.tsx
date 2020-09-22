@@ -27,6 +27,7 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
     <MUICard className="card">
       <CardMedia className="card-img" image={strMealThumb} title={strMeal} />
       <CardHeader
+        classes={{ content: "card-content" }}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
