@@ -23,4 +23,9 @@ interface Recipe {
   strYoutube: string;
   [key: string]: string;
 }
+
+interface RecipeShort {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
 }
