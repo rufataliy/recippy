@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import MUICard from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -8,6 +8,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Tooltip from "@material-ui/core/Tooltip";
+
 import { ChevronRightIcon } from "./icons";
 import "../asssets/styles/card.css";
 
@@ -23,6 +25,8 @@ interface Props {
 export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
   const { strMeal, strMealThumb, idMeal } = recipe;
 
+  const titleRef = useRef<HTMLParagraphElement>(null);
+
   return (
     <MUICard className="card">
       <CardMedia className="card-img" image={strMealThumb} title={strMeal} />
@@ -33,9 +37,14 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={strMeal}
+        title={
+          <Tooltip title={strMeal}>
+            <p>{strMeal}</p>
+          </Tooltip>
+        }
         // subheader="September 14, 2016"
       />
+
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook
