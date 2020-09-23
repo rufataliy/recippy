@@ -8,11 +8,10 @@ import Chip from "@material-ui/core/Chip";
 import { VideoIcon, FlagIcon } from "./icons";
 import { categories } from "../asssets/img/icons";
 import "../asssets/styles/review.css";
+import { useStore } from "../customHooks/useStore";
 
 interface Props {
   open: boolean;
-  toggleView: () => void;
-  idMeal: string;
 }
 
 const mapIngredientToMeasure = (recipe: Recipe) => {
@@ -33,19 +32,26 @@ const mapIngredientToMeasure = (recipe: Recipe) => {
   return elements;
 };
 
-export const RecipeView: React.FC<Props> = ({ open, toggleView, idMeal }) => {
+export const RecipeView: React.FC<Props> = ({ open }) => {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
-
+  const { selectedRecipeId, setSelectedRecipeId } = useStore();
   useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + idMeal)
+    if (!selectedRecipeId) return;
+    fetch(
+      "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + selectedRecipeId
+    )
       .then((res) => {
         return res.json();
       })
       .then((data) => setRecipe(data.meals[0]));
-  }, [idMeal]);
+  }, [selectedRecipeId]);
 
   return (
-    <Sidebar position={"right"} open={open} toggleSidebar={toggleView}>
+    <Sidebar
+      position={"right"}
+      open={open}
+      toggleSidebar={() => setSelectedRecipeId(null)}
+    >
       <div className="review-area">
         {recipe != null ? (
           <>

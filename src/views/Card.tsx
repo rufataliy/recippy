@@ -6,7 +6,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Tooltip from "@material-ui/core/Tooltip";
 
@@ -14,7 +13,7 @@ import { ChevronRightIcon, SaveIcon } from "./icons";
 import "../asssets/styles/card.css";
 
 interface Props {
-  setSelectedRecipe?: (id: string) => void;
+  setSelectedRecipeId: (id: string) => void;
   recipe: {
     strMeal: string;
     strMealThumb: string;
@@ -22,10 +21,8 @@ interface Props {
   };
 }
 
-export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
+export const Card: React.FC<Props> = ({ recipe, setSelectedRecipeId }) => {
   const { strMeal, strMealThumb, idMeal } = recipe;
-
-  const titleRef = useRef<HTMLParagraphElement>(null);
 
   const saveRecipe = (id: string) => {
     const ids = window.localStorage.getItem("recipes");
@@ -68,9 +65,7 @@ export const Card: React.FC<Props> = ({ recipe, setSelectedRecipe }) => {
         </Tooltip>
         <Tooltip title="See the recipe">
           <IconButton
-            onClick={() =>
-              setSelectedRecipe && setSelectedRecipe(recipe.idMeal)
-            }
+            onClick={() => setSelectedRecipeId(recipe.idMeal)}
             aria-label="see more"
           >
             <ChevronRightIcon />
