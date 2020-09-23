@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Sidebar } from "./Sidebar";
+import { Sidebar } from "../views/Sidebar";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Chip from "@material-ui/core/Chip";
-import { VideoIcon, FlagIcon } from "./icons";
+import { VideoIcon, FlagIcon } from "../views/icons";
 import { categories } from "../asssets/img/icons";
 import "../asssets/styles/review.css";
 import { useStore } from "../customHooks/useStore";
@@ -35,6 +35,7 @@ const mapIngredientToMeasure = (recipe: Recipe) => {
 export const RecipeView: React.FC<Props> = ({ open }) => {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const { selectedRecipeId, setSelectedRecipeId } = useStore();
+
   useEffect(() => {
     if (!selectedRecipeId) return;
     fetch(
@@ -44,6 +45,7 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
         return res.json();
       })
       .then((data) => setRecipe(data.meals[0]));
+    return () => setSelectedRecipeId(null);
   }, [selectedRecipeId]);
 
   return (

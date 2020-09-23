@@ -1,6 +1,5 @@
 export { Header } from "./Header";
 export { SideNav } from "./SideNav";
-export { RecipeView } from "./RecipeView";
 export { SearchArea } from "./SearchArea";
 export { ContentArea } from "./ContentArea";
 export { Card } from "./Card";
