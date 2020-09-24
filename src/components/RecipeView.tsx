@@ -8,7 +8,7 @@ import Chip from "@material-ui/core/Chip";
 import { VideoIcon, FlagIcon } from "../views/icons";
 import { categories } from "../asssets/img/icons";
 import "../asssets/styles/review.css";
-import { useStore } from "../customHooks/useStore";
+import { useStore } from "../customHooks";
 
 interface Props {
   open: boolean;
@@ -46,7 +46,7 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
       })
       .then((data) => setRecipe(data.meals[0]));
     return () => setSelectedRecipeId(null);
-  }, [selectedRecipeId]);
+  }, [selectedRecipeId, setSelectedRecipeId]);
 
   return (
     <Sidebar
