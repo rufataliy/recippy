@@ -19,7 +19,12 @@ function App() {
         return res.json();
       })
       .then((data) => setRecipeList(data.meals));
-  }, []);
+  }, [setRecipeList]);
+
+  const saveRecipe = (id: string) => {
+    const ids = window.localStorage.getItem("recipes");
+    window.localStorage.setItem("recipes", ids ? ids + `,${id}` : id);
+  };
 
   return (
     <Layout>
@@ -29,6 +34,7 @@ function App() {
         {recipeList &&
           recipeList.map((recipe) => (
             <Card
+              saveRecipe={saveRecipe}
               key={recipe.idMeal}
               setSelectedRecipeId={(id: string) => setSelectedRecipeId(id)}
               recipe={recipe}
