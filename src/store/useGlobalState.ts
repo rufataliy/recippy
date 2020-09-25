@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { makeApiRequest } from "../utils";
 
 export const useGlobalState = () => {
@@ -6,21 +6,27 @@ export const useGlobalState = () => {
   const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const search = (keyword?: string) => {
-    makeApiRequest(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`,
-      (data) => setRecipeList(data.meals),
-      setLoading
-    );
-  };
+  const search = useMemo(
+    () => (keyword?: string) => {
+      makeApiRequest(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`,
+        (data) => setRecipeList(data.meals),
+        setLoading
+      );
+    },
+    [setLoading]
+  );
 
-  const getRandomRecipes = () => {
-    makeApiRequest(
-      `https://www.themealdb.com/api/json/v1/1/random.php`,
-      (data) => setRecipeList(data.meals),
-      setLoading
-    );
-  };
+  const getRandomRecipes = useMemo(
+    () => () => {
+      makeApiRequest(
+        `https://www.themealdb.com/api/json/v1/1/random.php`,
+        (data) => setRecipeList(data.meals),
+        setLoading
+      );
+    },
+    [setLoading]
+  );
 
   return {
     search,
