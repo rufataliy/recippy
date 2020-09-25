@@ -9,7 +9,6 @@
   flex-wrap: wrap;
   height: 100%;
   margin: 0 auto;
-  padding-top: var(--padding-lg);
 }
 .content-inner > * {
   margin: 20px;
