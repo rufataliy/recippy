@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout } from "./components";
 import { Search } from "./components";
-import { ContentArea, Card } from "./views";
+import { ContentArea, Card, ContentLoader } from "./views";
 import { useStore } from "./customHooks/useStore";
 import { RecipeView } from "./components/RecipeView";
+import { loader } from "./asssets/img";
 
 function App() {
   const {
+    loading,
     recipeList,
     getRandomRecipes,
     selectedRecipeId,
@@ -27,15 +29,17 @@ function App() {
       <RecipeView open={Boolean(selectedRecipeId)} />
       <Search />
       <ContentArea>
-        {recipeList &&
-          recipeList.map((recipe) => (
-            <Card
-              saveRecipe={saveRecipe}
-              key={recipe.idMeal}
-              setSelectedRecipeId={(id: string) => setSelectedRecipeId(id)}
-              recipe={recipe}
-            />
-          ))}
+        <ContentLoader loading={loading}>
+          {recipeList &&
+            recipeList.map((recipe) => (
+              <Card
+                saveRecipe={saveRecipe}
+                key={recipe.idMeal}
+                setSelectedRecipeId={(id: string) => setSelectedRecipeId(id)}
+                recipe={recipe}
+              />
+            ))}
+        </ContentLoader>
       </ContentArea>
     </Layout>
   );
