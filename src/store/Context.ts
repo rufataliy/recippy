@@ -13,7 +13,7 @@ interface DefaultContext {
 }
 
 export const Context = React.createContext<DefaultContext>({
-  search: ([]) => {},
+  search: () => {},
   loading: false,
   recipeList: null,
   setRecipeList: () => {},
