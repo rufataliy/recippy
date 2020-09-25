@@ -6,11 +6,6 @@ type UseApi = (
   setStatus?: Dispatch<SetStateAction<boolean>>
 ) => Promise<any>;
 
-const headers = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-};
-
 export const makeApiRequest: UseApi = (url, callback, setStatus) => {
   setStatus && setStatus(true);
   return new Promise((resolve, reject) => {
