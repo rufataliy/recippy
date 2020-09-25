@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { SearchIcon, FilterIcon } from "../../views/icons";
 import { debounce } from "../../utils";
+import { useStore } from "../../customHooks";
 
 interface Props {
   value: string;
@@ -8,16 +9,13 @@ interface Props {
 }
 
 export const SearchInput: React.FC<Props> = ({ value, setValue }) => {
-  const callApi = useMemo(
-    () =>
-      debounce(function () {
-        console.log("search");
-      }, 500),
-    [debounce]
-  );
+  const { search } = useStore();
+
+  const callApi = useMemo(() => debounce(search, 500), [debounce]);
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    callApi();
+    callApi(e.target.value);
   };
   return (
     <>
