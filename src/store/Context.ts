@@ -7,6 +7,7 @@ interface DefaultContext {
   loading: boolean;
   recipeList: RecipeShort[] | null;
   setRecipeList: Dispatch<SetStateAction<RecipeShort[] | null>> | VoidFunction;
+  reviewLoading: boolean;
   selectedRecipeId: string | null;
   getRandomRecipes: (arg?: any) => void;
   setSelectedRecipeId: Dispatch<SetStateAction<string | null>> | VoidFunction;
@@ -17,6 +18,7 @@ export const Context = React.createContext<DefaultContext>({
   loading: false,
   recipeList: null,
   setRecipeList: () => {},
+  reviewLoading: false,
   selectedRecipeId: null,
   getRandomRecipes: () => {},
   setSelectedRecipeId: () => {},

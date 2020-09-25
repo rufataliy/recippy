@@ -5,9 +5,10 @@ export const useGlobalState = () => {
   const [recipeList, setRecipeList] = useState<RecipeShort[] | null>(null);
   const [selectedRecipeId, setSelectedRecipeId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [reviewLoading, setReviewLoading] = useState(false);
 
   const search = useMemo(
-    () => (keyword?: string) => {
+    () => (keyword: string) => {
       makeApiRequest(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`,
         (data) => setRecipeList(data.meals),
@@ -33,6 +34,7 @@ export const useGlobalState = () => {
     loading,
     recipeList,
     setRecipeList,
+    reviewLoading,
     selectedRecipeId,
     getRandomRecipes,
     setSelectedRecipeId,
