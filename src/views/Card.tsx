@@ -17,53 +17,51 @@ interface Props {
   recipe: RecipeShort;
 }
 
-export const Card: React.FC<Props> = ({
-  recipe,
-  setSelectedRecipeId,
-  saveRecipe,
-}) => {
-  const { strMeal, strMealThumb, idMeal } = recipe;
+export const Card: React.FC<Props> = React.memo(
+  ({ recipe, setSelectedRecipeId, saveRecipe }) => {
+    const { strMeal, strMealThumb, idMeal } = recipe;
 
-  return (
-    <MUICard className="card">
-      <CardMedia className="card-img" image={strMealThumb} title={strMeal} />
-      <CardHeader
-        classes={{ content: "card-content" }}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={
-          <Tooltip title={strMeal}>
-            <p>{strMeal}</p>
+    return (
+      <MUICard className="card">
+        <CardMedia className="card-img" image={strMealThumb} title={strMeal} />
+        <CardHeader
+          classes={{ content: "card-content" }}
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={
+            <Tooltip title={strMeal}>
+              <p>{strMeal}</p>
+            </Tooltip>
+          }
+          // subheader="September 14, 2016"
+        />
+
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            This impressive paella is a perfect party dish and a fun meal to
+            cook together with your guests. Add 1 cup of frozen peas along with
+            the mussels, if you like.
+          </Typography>
+        </CardContent>
+        <CardActions style={{ justifyContent: "space-between" }}>
+          <Tooltip title="Save">
+            <IconButton onClick={() => saveRecipe(idMeal)} aria-label="save">
+              <SaveIcon />
+            </IconButton>
           </Tooltip>
-        }
-        // subheader="September 14, 2016"
-      />
-
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
-        </Typography>
-      </CardContent>
-      <CardActions style={{ justifyContent: "space-between" }}>
-        <Tooltip title="Save">
-          <IconButton onClick={() => saveRecipe(idMeal)} aria-label="save">
-            <SaveIcon />
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="See the recipe">
-          <IconButton
-            onClick={() => setSelectedRecipeId(idMeal)}
-            aria-label="see more"
-          >
-            <ChevronRightIcon />
-          </IconButton>
-        </Tooltip>
-      </CardActions>
-    </MUICard>
-  );
-};
+          <Tooltip title="See the recipe">
+            <IconButton
+              onClick={() => setSelectedRecipeId(idMeal)}
+              aria-label="see more"
+            >
+              <ChevronRightIcon />
+            </IconButton>
+          </Tooltip>
+        </CardActions>
+      </MUICard>
+    );
+  }
+);
