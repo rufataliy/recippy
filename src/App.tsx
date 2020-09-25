@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Layout } from "./components";
 import { Search } from "./components";
 import { ContentArea, Card, ContentLoader } from "./views";
 import { useStore } from "./customHooks/useStore";
 import { RecipeView } from "./components/RecipeView";
-import { loader } from "./asssets/img";
+
+const saveRecipe = (id: string) => {
+  const ids = window.localStorage.getItem("recipes");
+  window.localStorage.setItem("recipes", ids ? ids + `,${id}` : id);
+};
 
 function App() {
   const {
@@ -17,12 +21,7 @@ function App() {
 
   useEffect(() => {
     getRandomRecipes();
-  }, []);
-
-  const saveRecipe = (id: string) => {
-    const ids = window.localStorage.getItem("recipes");
-    window.localStorage.setItem("recipes", ids ? ids + `,${id}` : id);
-  };
+  }, [getRandomRecipes]);
 
   return (
     <Layout>
