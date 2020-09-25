@@ -23,21 +23,23 @@ function App() {
     getRandomRecipes();
   }, [getRandomRecipes]);
 
+  const renderRecipes = () =>
+    recipeList?.map((recipe) => (
+      <Card
+        saveRecipe={saveRecipe}
+        key={recipe.idMeal}
+        setSelectedRecipeId={setSelectedRecipeId}
+        recipe={recipe}
+      />
+    ));
+
   return (
     <Layout>
       <RecipeView open={Boolean(selectedRecipeId)} />
       <Search />
       <ContentArea>
         <ContentLoader loading={loading}>
-          {recipeList &&
-            recipeList.map((recipe) => (
-              <Card
-                saveRecipe={saveRecipe}
-                key={recipe.idMeal}
-                setSelectedRecipeId={setSelectedRecipeId}
-                recipe={recipe}
-              />
-            ))}
+          {recipeList && renderRecipes()}
         </ContentLoader>
       </ContentArea>
     </Layout>
