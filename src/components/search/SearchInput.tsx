@@ -11,7 +11,7 @@ interface Props {
 export const SearchInput: React.FC<Props> = ({ value, setValue }) => {
   const { search } = useStore();
 
-  const callApi = useMemo(() => debounce(search, 500), [debounce]);
+  const callApi = useMemo(() => debounce(search, 500), [search]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
