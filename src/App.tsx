@@ -35,7 +35,7 @@ function App() {
               <Card
                 saveRecipe={saveRecipe}
                 key={recipe.idMeal}
-                setSelectedRecipeId={(id: string) => setSelectedRecipeId(id)}
+                setSelectedRecipeId={setSelectedRecipeId}
                 recipe={recipe}
               />
             ))}
