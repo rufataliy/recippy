@@ -8,18 +8,14 @@ import { RecipeView } from "./components/RecipeView";
 function App() {
   const {
     recipeList,
-    setRecipeList,
-    setSelectedRecipeId,
+    getRandomRecipes,
     selectedRecipeId,
+    setSelectedRecipeId,
   } = useStore();
 
   useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => setRecipeList(data.meals));
-  }, [setRecipeList]);
+    getRandomRecipes();
+  }, []);
 
   const saveRecipe = (id: string) => {
     const ids = window.localStorage.getItem("recipes");
