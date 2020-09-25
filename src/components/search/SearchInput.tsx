@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { SearchIcon, FilterIcon } from "../../views/icons";
+import { debounce } from "../../utils";
 
 interface Props {
   value: string;
@@ -7,13 +8,20 @@ interface Props {
 }
 
 export const SearchInput: React.FC<Props> = ({ value, setValue }) => {
+  const callApi = useMemo(
+    () =>
+      debounce(function () {
+        console.log("search");
+      }, 500),
+    [debounce]
+  );
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+    callApi();
+  };
   return (
     <>
-      <input
-        placeholder="Search"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <input placeholder="Search" value={value} onChange={(e) => onChange(e)} />
       <div className="search-controls">
         <button className="search-icon-btn">
           <SearchIcon />
