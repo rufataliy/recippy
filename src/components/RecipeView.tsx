@@ -5,7 +5,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Chip from "@material-ui/core/Chip";
-import { VideoIcon, FlagIcon } from "../views/icons";
+import { VideoIcon, FlagIcon, LinkIcon } from "../views/icons";
 import { categories } from "../asssets/img/icons";
 import "../asssets/styles/review.css";
 import { useStore } from "../customHooks";
@@ -66,11 +66,23 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
                 <Chip
                   label="Video"
                   component="a"
-                  href={recipe.strYoutube}
-                  clickable
+                  target="_blank"
                   variant="outlined"
                   icon={<VideoIcon />}
+                  href={recipe.strYoutube}
+                  clickable
                 />
+                {recipe.strSource && (
+                  <Chip
+                    component="a"
+                    target="_blank"
+                    label={"website"}
+                    variant="outlined"
+                    href={recipe.strSource}
+                    icon={<LinkIcon />}
+                    clickable
+                  />
+                )}
                 <Chip
                   icon={<FlagIcon />}
                   label={recipe.strArea}

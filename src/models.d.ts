@@ -21,6 +21,7 @@ interface Recipe {
   strMealThumb: string;
   strTags: string;
   strYoutube: string;
+  strSource: string;
   [key: string]: string;
 }
 
