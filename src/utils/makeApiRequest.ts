@@ -2,12 +2,13 @@ import { Dispatch, SetStateAction } from "react";
 
 type UseApi = (
   url: string,
-  callback: (arg: any) => SetStateAction<any>,
+  setData: (arg: any) => SetStateAction<any>,
   setStatus?: Dispatch<SetStateAction<boolean>>
 ) => Promise<any>;
 
-export const makeApiRequest: UseApi = (url, callback, setStatus) => {
+export const makeApiRequest: UseApi = (url, setData, setStatus) => {
   setStatus && setStatus(true);
+
   return new Promise((resolve, reject) => {
     fetch(url, {
       mode: "cors",
@@ -21,7 +22,7 @@ export const makeApiRequest: UseApi = (url, callback, setStatus) => {
       })
       .then((data) => {
         if (!data.error) {
-          resolve(callback(data));
+          resolve(setData(data));
         }
       })
       .catch((err) => {
