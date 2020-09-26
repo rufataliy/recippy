@@ -4,6 +4,7 @@ import { Search } from "./components";
 import { ContentArea, Card, ContentLoader } from "./views";
 import { useStore } from "./customHooks/useStore";
 import { RecipeView } from "./components/RecipeView";
+import { noResult } from "./asssets/img";
 
 const saveRecipe = (id: string) => {
   const ids = window.localStorage.getItem("recipes");
@@ -39,7 +40,7 @@ function App() {
       <Search />
       <ContentArea>
         <ContentLoader loading={loading}>
-          {recipeList && renderRecipes()}
+          {recipeList ? renderRecipes() : <img src={noResult} />}
         </ContentLoader>
       </ContentArea>
     </Layout>
