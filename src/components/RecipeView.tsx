@@ -33,20 +33,15 @@ const mapIngredientToMeasure = (recipe: Recipe) => {
 };
 
 export const RecipeView: React.FC<Props> = ({ open }) => {
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
-  const { selectedRecipeId, setSelectedRecipeId } = useStore();
+  const {
+    reviewedRecipe: recipe,
+    resetReviewState,
+    reviewLoading,
+  } = useStore();
 
   useEffect(() => {
-    if (!selectedRecipeId) return;
-    fetch(
-      "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + selectedRecipeId
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => setRecipe(data.meals[0]));
-    return () => setSelectedRecipeId(null);
-  }, [selectedRecipeId, setSelectedRecipeId]);
+    return () => resetReviewState();
+  }, [resetReviewState]);
 
   return (
     <Sidebar

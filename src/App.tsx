@@ -15,8 +15,8 @@ function App() {
     loading,
     recipeList,
     getRandomRecipes,
-    selectedRecipeId,
-    setSelectedRecipeId,
+    getRecipeById,
+    reviewBarOpen,
   } = useStore();
 
   useEffect(() => {
@@ -26,16 +26,16 @@ function App() {
   const renderRecipes = () =>
     recipeList?.map((recipe) => (
       <Card
+        getRecipeById={getRecipeById}
         saveRecipe={saveRecipe}
         key={recipe.idMeal}
-        setSelectedRecipeId={setSelectedRecipeId}
         recipe={recipe}
       />
     ));
 
   return (
     <Layout>
-      <RecipeView open={Boolean(selectedRecipeId)} />
+      <RecipeView open={Boolean(reviewBarOpen)} />
       <Search />
       <ContentArea>
         <ContentLoader loading={loading}>

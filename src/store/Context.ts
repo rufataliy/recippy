@@ -8,9 +8,11 @@ interface DefaultContext {
   recipeList: RecipeShort[] | null;
   setRecipeList: Dispatch<SetStateAction<RecipeShort[] | null>> | VoidFunction;
   reviewLoading: boolean;
-  selectedRecipeId: string | null;
+  reviewBarOpen: boolean;
+  getRecipeById: (id: string) => void;
+  reviewedRecipe: Recipe | null;
+  resetReviewState: () => void;
   getRandomRecipes: (arg?: any) => void;
-  setSelectedRecipeId: Dispatch<SetStateAction<string | null>> | VoidFunction;
 }
 
 export const Context = React.createContext<DefaultContext>({
@@ -19,7 +21,9 @@ export const Context = React.createContext<DefaultContext>({
   recipeList: null,
   setRecipeList: () => {},
   reviewLoading: false,
-  selectedRecipeId: null,
+  reviewBarOpen: false,
+  getRecipeById: () => {},
+  reviewedRecipe: null,
   getRandomRecipes: () => {},
-  setSelectedRecipeId: () => {},
+  resetReviewState: () => {},
 });

@@ -12,13 +12,13 @@ import { ChevronRightIcon, SaveIcon } from "./icons";
 import "../asssets/styles/card.css";
 
 interface Props {
-  setSelectedRecipeId: (id: string) => void;
+  getRecipeById: (id: string) => void;
   saveRecipe: (id: string) => void;
   recipe: RecipeShort;
 }
 
 export const Card: React.FC<Props> = React.memo(
-  ({ recipe, setSelectedRecipeId, saveRecipe }) => {
+  ({ recipe, getRecipeById, saveRecipe }) => {
     const { strMeal, strMealThumb, idMeal } = recipe;
 
     return (
@@ -54,7 +54,7 @@ export const Card: React.FC<Props> = React.memo(
           </Tooltip>
           <Tooltip title="See the recipe">
             <IconButton
-              onClick={() => setSelectedRecipeId(idMeal)}
+              onClick={() => getRecipeById(idMeal)}
               aria-label="see more"
             >
               <ChevronRightIcon />
