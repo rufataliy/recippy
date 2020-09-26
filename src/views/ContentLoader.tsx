@@ -6,5 +6,9 @@ interface Props {
 }
 
 export const ContentLoader: React.FC<Props> = ({ children, loading }) => {
-  return loading ? <img src={loader} alt="loader" /> : <>{children}</>;
+  return loading ? (
+    <img className="loader" src={loader} alt="loader" />
+  ) : (
+    <>{children}</>
+  );
 };

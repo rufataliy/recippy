@@ -48,3 +48,8 @@
 .tooltip {
   color: red;
 }
+
+.loader {
+  margin: auto;
+  height: 105px;
+}
