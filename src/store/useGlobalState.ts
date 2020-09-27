@@ -35,6 +35,7 @@ export const useGlobalState = () => {
   const openReviewBar = useMemo(() => () => setReviewBarOpen(true), [
     setReviewBarOpen,
   ]);
+
   const closeReviewBar = useMemo(() => () => setReviewBarOpen(false), [
     setReviewBarOpen,
   ]);
