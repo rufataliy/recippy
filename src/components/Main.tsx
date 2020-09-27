@@ -39,7 +39,14 @@ export const Main: React.FC = () => {
       <Search />
       <ContentArea>
         <ContentLoader loading={loading}>
-          {recipeList ? renderRecipes() : <img src={noResult} />}
+          {recipeList ? (
+            renderRecipes()
+          ) : (
+            <img
+              src={noResult}
+              alt="no result found, check your spelling or try another name"
+            />
+          )}
         </ContentLoader>
       </ContentArea>
     </>

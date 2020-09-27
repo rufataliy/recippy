@@ -9,7 +9,7 @@ export const About = () => {
     <ContentArea>
       <div className="about">
         <div className="about-img-lg">
-          <img src={about} alt="about page image" />
+          <img src={about} alt="vegetables - about page" />
         </div>
         <div className="about-content">
           <div>
@@ -22,7 +22,7 @@ export const About = () => {
             </Typography>
           </div>
           <div className="about-img-sm">
-            <img src={about} alt="about page image" />
+            <img src={about} alt="vegetables - about page" />
           </div>
           <div>
             <Typography variant="h4">Features</Typography>
