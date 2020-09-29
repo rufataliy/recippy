@@ -57,6 +57,7 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
                 <Typography variant="h4">{recipe.strMeal}</Typography>
                 <div className="review-info">
                   <Chip
+                    className="chip"
                     label="Video"
                     component="a"
                     target="_blank"
@@ -67,6 +68,7 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
                   />
                   {recipe.strSource && (
                     <Chip
+                      className="chip"
                       component="a"
                       target="_blank"
                       label={"website"}
@@ -77,11 +79,15 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
                     />
                   )}
                   <Chip
+                    className="chip"
                     icon={<FlagIcon />}
                     label={recipe.strArea}
                     variant="outlined"
                   />
                   <Chip
+                    className="chip"
+                    variant="outlined"
+                    label={recipe.strCategory}
                     icon={
                       <img
                         className="custom-icon"
@@ -89,8 +95,6 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
                         alt=""
                       />
                     }
-                    label={recipe.strCategory}
-                    variant="outlined"
                   />
                 </div>
               </div>
