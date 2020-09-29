@@ -36,7 +36,6 @@ export const Main: React.FC = () => {
   return (
     <>
       <RecipeView open={Boolean(reviewBarOpen)} />
-      <Search />
       <ContentArea>
         <ContentLoader loading={loading}>
           {recipeList ? (
@@ -49,6 +48,7 @@ export const Main: React.FC = () => {
           )}
         </ContentLoader>
       </ContentArea>
+      <Search />
     </>
   );
 };
