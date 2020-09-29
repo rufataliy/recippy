@@ -1,0 +1,14 @@
+.hire-me {
+  width: 40%;
+}
+
+.hire-me p {
+  font-size: 1.6rem;
+}
+
+.hire-me *:not(:last-child) {
+  margin-bottom: var(--margin-lg);
+}
+.hire-me a {
+  color: var(--primary-dark);
+}
