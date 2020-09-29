@@ -36,3 +36,12 @@
 .review-area .list-item {
   border-bottom: 1px solid grey;
 }
+
+.chip:not(:last-child) {
+  margin-right: var(--margin-xs);
+}
+
+.chip svg,
+.chip img {
+  margin-left: 10px !important;
+}
