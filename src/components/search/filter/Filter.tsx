@@ -4,6 +4,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { ByName } from "./ByName";
+import { ByIngredient } from "./ByIngredient";
 
 const CATEGORIES = "categories";
 const INGREDIENTS = "ingredients";
@@ -96,7 +97,7 @@ export function Filter() {
             <ByName />
           </TabPanel>
           <TabPanel selectedTab={selectedTab} tabName={INGREDIENTS}>
-            ingredients
+            <ByIngredient />
           </TabPanel>
           <TabPanel selectedTab={selectedTab} tabName={CATEGORIES}>
             Category
