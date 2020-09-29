@@ -1,16 +1,11 @@
-import React, { useMemo, useEffect } from "react";
-import { SearchIcon, FilterIcon } from "../../views/icons";
-import { debounce } from "../../utils";
-import { useStore } from "../../customHooks";
+import React, { useMemo, useEffect, useState } from "react";
+import { SearchIcon, FilterIcon } from "../../../views/icons";
+import { debounce } from "../../../utils";
+import { useStore } from "../../../customHooks";
 
-interface Props {
-  value: string;
-  setValue: (value: string) => void;
-}
-
-export const SearchInput: React.FC<Props> = ({ value, setValue }) => {
+export const ByName: React.FC = () => {
   const { search, getRandomRecipes } = useStore();
-
+  const [value, setValue] = useState("");
   const callApi = useMemo(() => debounce(search, 800), [search]);
 
   useEffect(() => {

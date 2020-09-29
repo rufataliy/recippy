@@ -3,6 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
+import { ByName } from "./ByName";
 
 const CATEGORIES = "categories";
 const INGREDIENTS = "ingredients";
@@ -92,7 +93,7 @@ export function Filter() {
       <div className={`tab-content-filter ${collapsed ? "collapsed" : ""}`}>
         <div className="content-wrapper">
           <TabPanel selectedTab={selectedTab} tabName={NAME}>
-            name
+            <ByName />
           </TabPanel>
           <TabPanel selectedTab={selectedTab} tabName={INGREDIENTS}>
             ingredients
