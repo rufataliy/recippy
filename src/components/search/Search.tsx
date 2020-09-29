@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { SearchInput } from "./SearchInput";
+import React from "react";
 import { SearchArea } from "../../views";
+import { Filter } from "./filter/Filter";
 
 export const Search = () => {
-  const [value, setValue] = useState("");
-
   return (
     <SearchArea>
-      <SearchInput value={value} setValue={(value) => setValue(value)} />
+      <Filter />
     </SearchArea>
   );
 };
