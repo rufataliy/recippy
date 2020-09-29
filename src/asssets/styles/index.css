@@ -2,18 +2,21 @@
   --primary-light: #f5fff6;
   --primary-medium: #b3e3cc;
   --primary-dark: #1a8e79;
+  --padding-xs: 0.5rem;
   --padding-sm: 1rem;
   --padding-md: 2rem;
   --padding-lg: 2.5rem;
+  --margin-xs: 0.5rem;
   --margin-sm: 1.5rem;
   --margin-md: 2.3rem;
   --margin-lg: 3rem;
   --font-reg: inherit;
   --font-md: 1.2rem;
+  --scrollbar-width: 10px;
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: var(--scrollbar-width);
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary-dark);
@@ -52,4 +55,10 @@
 .loader {
   margin: auto;
   height: 105px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--margin-xs) 0;
 }
