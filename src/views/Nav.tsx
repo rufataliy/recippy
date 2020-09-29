@@ -28,7 +28,7 @@ export const Nav: React.FC = () => {
         </ListItem>
       </Link>
       <Divider />
-      <Link to="/contact">
+      <Link to="/hire_me">
         <ListItem button key={"hireme"}>
           <ListItemIcon>
             <WorkIcon />

@@ -1,5 +1,5 @@
 import React from "react";
-import { About, Layout, Main } from "./components";
+import { About, Layout, Main, HireMe } from "./components";
 import { Route, Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -11,7 +11,7 @@ function App() {
       <Layout>
         <Route exact path="/" component={Main} />
         <Route path="/about" component={About} />
-        <Route path="/contact">Hire me</Route>
+        <Route path="/hire_me" component={HireMe} />
       </Layout>
     </Router>
   );
