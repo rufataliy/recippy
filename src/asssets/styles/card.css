@@ -17,3 +17,17 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 1120px) {
+  .content .card {
+    width: auto;
+    border-radius: 5px;
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .content .card {
+    max-width: none;
+  }
+}
