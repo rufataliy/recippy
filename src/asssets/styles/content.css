@@ -1,17 +1,35 @@
 .content {
   overflow: auto;
 }
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: var(--primary-dark);
+}
+
+.content-wrapper {
+  width: 65%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.content-wrapper > div {
+  height: 100%;
+}
 
 .content-inner {
-  width: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   height: 100%;
-  margin: 0 auto;
+  margin-right: -20px;
 }
 .content-inner > * {
-  margin: 20px;
+  margin: 20px 0;
+  margin-right: 20px;
 }
 
 .content-inner .MuiTypography-h5 {
@@ -19,13 +37,19 @@
 }
 
 @media screen and (max-width: 880px) {
-  .content-inner {
+  .content-wrapper {
     width: 95%;
-    justify-content: center;
   }
 }
+
 @media screen and (max-width: 1300px) {
-  .content-inner {
+  .content-wrapper {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 1460px) {
+  .content-wrapper {
     width: 85%;
   }
 }
