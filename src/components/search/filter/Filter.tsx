@@ -5,6 +5,7 @@ import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { ByName } from "./ByName";
 import { ByIngredient } from "./ByIngredient";
+import { ExpandLessIcon, ExpandMoreIcon } from "../../../views/icons";
 
 const CATEGORIES = "categories";
 const INGREDIENTS = "ingredients";
@@ -53,42 +54,48 @@ export function Filter() {
     <>
       <AppBar className="filterBar" position="static" color="default">
         <div className="content-wrapper">
-          <Tabs
-            value={selectedTab}
-            onChange={(event, value) => handleChange(value)}
-            variant="scrollable"
-            scrollButtons="auto"
-            className="filter-tab-header"
-            aria-label="scrollable auto tabs example"
-          >
-            <Button className="tab-title" onClick={toggleFilter}>
-              Search By
+          <div className="tab-section">
+            <Button
+              startIcon={collapsed ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+              className="tab-title"
+              onClick={toggleFilter}
+            >
+              Filter <span className="hide-on-mobile">&nbsp;By</span>
             </Button>
-            <Tab
-              onClick={openFilter}
-              className="tab-btn"
-              label="Name"
-              value={NAME}
-            />
-            <Tab
-              onClick={openFilter}
-              className="tab-btn"
-              label="Ingredient"
-              value={INGREDIENTS}
-            />
-            <Tab
-              onClick={openFilter}
-              className="tab-btn"
-              label="Category"
-              value={CATEGORIES}
-            />
-            <Tab
-              onClick={openFilter}
-              className="tab-btn"
-              label="Country"
-              value={COUNTRIES}
-            />
-          </Tabs>
+            <Tabs
+              value={selectedTab}
+              onChange={(event, value) => handleChange(value)}
+              variant="scrollable"
+              scrollButtons="on"
+              className="filter-tab-header"
+              aria-label="scrollable auto tabs example"
+            >
+              <Tab
+                onClick={openFilter}
+                className="tab-btn"
+                label="Name"
+                value={NAME}
+              />
+              <Tab
+                onClick={openFilter}
+                className="tab-btn"
+                label="Ingredient"
+                value={INGREDIENTS}
+              />
+              <Tab
+                onClick={openFilter}
+                className="tab-btn"
+                label="Category"
+                value={CATEGORIES}
+              />
+              <Tab
+                onClick={openFilter}
+                className="tab-btn"
+                label="Country"
+                value={COUNTRIES}
+              />
+            </Tabs>
+          </div>
         </div>
       </AppBar>
       <div className={`tab-content-filter ${collapsed ? "collapsed" : ""}`}>
