@@ -136,11 +136,11 @@
   height: 100%;
 }
 
-#search-area .ingredient-section > *:first-child {
-  margin-top: var(--margin-xs);
+#search-area .form-control {
+  margin-top: var(--margin-sm);
 }
 
-#search-area .ingredient-section .form-control {
+#search-area .form-control {
   display: flex;
 }
 
