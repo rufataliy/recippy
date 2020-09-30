@@ -115,6 +115,10 @@
   width: 50%;
 }
 
+#search-area .tab-section {
+  display: flex;
+}
+
 #search-area .tab-content-filter {
   height: 26vh;
   overflow: hidden;
