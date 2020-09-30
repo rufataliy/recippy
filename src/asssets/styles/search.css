@@ -160,3 +160,10 @@
   flex-grow: 1;
   overflow: auto;
 }
+
+#search-area .name-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
