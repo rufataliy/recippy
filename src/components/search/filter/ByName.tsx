@@ -1,4 +1,5 @@
 import React, { useMemo, useEffect, useState } from "react";
+import Button from "@material-ui/core/Button";
 import { SearchIcon, FilterIcon } from "../../../views/icons";
 import { debounce } from "../../../utils";
 import { useStore } from "../../../customHooks";
@@ -20,16 +21,19 @@ export const ByName: React.FC = () => {
   };
 
   return (
-    <>
-      <input placeholder="Search" value={value} onChange={(e) => onChange(e)} />
-      <div className="search-controls">
-        <button className="search-icon-btn">
-          <SearchIcon />
-        </button>
-        <button className="search-icon-btn">
-          <FilterIcon />
-        </button>
+    <div className="name-section">
+      <div className="form-control">
+        <input
+          placeholder="Enter meal name . . ."
+          value={value}
+          onChange={onChange}
+        />
       </div>
-    </>
+      <div className="btn-group">
+        <Button size="large" className="bg-btn" fullWidth type="submit">
+          search
+        </Button>
+      </div>
+    </div>
   );
 };
