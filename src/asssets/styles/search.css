@@ -27,6 +27,7 @@
 }
 
 #search-area input {
+  width: 100%;
   border: none;
   padding: var(--padding-xs);
   padding-right: 2rem;
@@ -62,6 +63,7 @@
 #search-area .tab-title {
   font-weight: bold;
   color: var(--primary-dark);
+  min-width: 72px;
 }
 
 #search-area .tab-btn.Mui-selected {
@@ -94,16 +96,6 @@
 #search-area .content-inner > * {
   margin: 0;
 }
-.tab-content-filter {
-  padding-right: var(--scrollbar-width);
-}
-/* #search-area .btn-group button:first-child {
-  width: 70%;
-}
-
-#search-area .btn-group button:nth-child(2) {
-  width: 25%;
-} */
 
 #search-area .input-fields {
   height: 17vh;
