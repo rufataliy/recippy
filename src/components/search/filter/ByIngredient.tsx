@@ -31,9 +31,6 @@ export const ByIngredient = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <Button variant="outlined" onClick={addIngredient} size="small">
-          Add
-        </Button>
       </div>
       <div className="ingredient-chips">
         {ingredients &&
@@ -50,6 +47,9 @@ export const ByIngredient = () => {
       <div className="btn-group">
         <Button size="large" className="bg-btn" fullWidth type="submit">
           search
+        </Button>
+        <Button variant="outlined" onClick={addIngredient} size="small">
+          Add
         </Button>
       </div>
     </div>
