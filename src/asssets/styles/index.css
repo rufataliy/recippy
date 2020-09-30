@@ -62,3 +62,13 @@
   justify-content: space-between;
   margin: var(--margin-xs) 0;
 }
+
+.btn-group > button:nth-child(2) {
+  margin-left: var(--margin-xs);
+}
+
+@media screen and (max-width: 500px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
