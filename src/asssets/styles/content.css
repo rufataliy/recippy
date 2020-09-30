@@ -1,5 +1,6 @@
 .content {
   overflow: auto;
+  flex-grow: 1;
 }
 .content h1,
 .content h2,
@@ -23,6 +24,7 @@
 .content-inner {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   height: 100%;
   margin-right: -20px;
@@ -36,9 +38,9 @@
   font-size: 1.1rem;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 1460px) {
   .content-wrapper {
-    width: 95%;
+    width: 85%;
   }
 }
 
@@ -48,8 +50,11 @@
   }
 }
 
-@media screen and (max-width: 1460px) {
+@media screen and (max-width: 880px) {
   .content-wrapper {
-    width: 85%;
+    width: 95%;
+  }
+  .content-inner {
+    margin-right: 0px;
   }
 }
