@@ -13,10 +13,10 @@ interface DefaultContext {
   reviewedRecipe: Recipe | null;
   resetReviewState: () => void;
   getRandomRecipes: (arg?: any) => void;
+  searchByIngredients: (args?: any) => void;
 }
 
 export const Context = React.createContext<DefaultContext>({
-  search: () => {},
   loading: false,
   recipeList: null,
   searchByName: () => {},
@@ -27,4 +27,5 @@ export const Context = React.createContext<DefaultContext>({
   reviewedRecipe: null,
   getRandomRecipes: () => {},
   resetReviewState: () => {},
+  searchByIngredients: () => {},
 });
