@@ -3,6 +3,8 @@
   border-radius: 10%;
   transition: 0.3s;
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  margin: 20px 0;
+  margin-right: 20px;
 }
 
 .content .card:hover {
