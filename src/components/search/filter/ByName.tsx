@@ -1,13 +1,12 @@
 import React, { useMemo, useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
-import { SearchIcon, FilterIcon } from "../../../views/icons";
 import { debounce } from "../../../utils";
 import { useStore } from "../../../customHooks";
 
 export const ByName: React.FC = () => {
-  const { search, getRandomRecipes } = useStore();
+  const { searchByName, getRandomRecipes } = useStore();
   const [value, setValue] = useState("");
-  const callApi = useMemo(() => debounce(search, 800), [search]);
+  const callApi = useMemo(() => debounce(searchByName, 800), [searchByName]);
 
   useEffect(() => {
     if (Boolean(value.trim())) {
