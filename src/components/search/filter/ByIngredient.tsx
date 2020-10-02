@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
+import { useStore } from "../../../customHooks";
 
 export const ByIngredient = () => {
   const [ingredients, setIngredients] = useState<string[] | undefined>([]);
   const [value, setValue] = useState("");
+  const { searchByIngredients } = useStore();
 
   const removeField = (ingredientToRemove: string) => {
     setIngredients((ingredients) => {
@@ -21,6 +23,17 @@ export const ByIngredient = () => {
       return ingredients && [...ingredients, value];
     });
     setValue("");
+  };
+
+  // TODO: process multiple white spaces to be replaces with one underscore
+
+  const search = () => {
+    const processedIngredients = ingredients
+      ?.map((ingredient) => ingredient.replace(" ", "_"))
+      .join(",");
+    console.log(processedIngredients);
+
+    searchByIngredients(processedIngredients);
   };
 
   return (
@@ -45,7 +58,13 @@ export const ByIngredient = () => {
           })}
       </div>
       <div className="btn-group">
-        <Button size="large" className="bg-btn" fullWidth type="submit">
+        <Button
+          onClick={search}
+          size="large"
+          className="bg-btn"
+          fullWidth
+          type="submit"
+        >
           search
         </Button>
         <Button variant="outlined" onClick={addIngredient} size="small">
