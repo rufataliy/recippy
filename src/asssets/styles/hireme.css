@@ -1,14 +1,64 @@
 .hire-me {
-  width: 40%;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  margin: auto;
 }
 
-.hire-me p {
-  font-size: 1.6rem;
-}
-
-.hire-me *:not(:last-child) {
-  margin-bottom: var(--margin-lg);
-}
 .hire-me a {
   color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.hire-me > * {
+  width: 50%;
+}
+
+.hire-me-content > * {
+  margin-bottom: var(--margin-lg);
+}
+
+.hire-me-content h4 {
+  margin-bottom: var(--margin-sm);
+  color: var(--primary-dark);
+}
+
+.hire-me-content div:last-child {
+  margin-bottom: 0;
+}
+
+.hire-me-img-lg {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.hire-me-img-sm {
+  display: none;
+  margin-bottom: var(--margin-xs);
+}
+
+.hire-me-img-lg img {
+  width: 100%;
+  margin: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .hire-me-content h4 {
+    text-align: center;
+  }
+  .hire-me-img-lg {
+    display: none;
+  }
+  .hire-me-img-sm {
+    display: block;
+  }
+  .hire-me-img-sm img {
+    width: 100%;
+  }
+  .hire-me > * {
+    width: 100%;
+  }
 }

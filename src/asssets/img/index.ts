@@ -2,4 +2,5 @@ export { default as logo } from "./logo.svg";
 export { default as loader } from "./loader.svg";
 export { default as noResult } from "./noResult.png";
 export { default as about } from "./about.jpg";
+export { default as hire_me } from "./hire_me.jpg";
 export * from "./icons";
