@@ -35,7 +35,7 @@ function TabPanel(props: TabPanelProps) {
 }
 
 export function Filter() {
-  const [selectedTab, setSelectedTab] = useState(INGREDIENTS);
+  const [selectedTab, setSelectedTab] = useState(NAME);
   const [collapsed, setCollapsed] = useState(false);
 
   const handleChange = (tabName: string) => {
