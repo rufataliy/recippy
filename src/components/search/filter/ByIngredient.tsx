@@ -6,7 +6,7 @@ import { useStore } from "../../../customHooks";
 export const ByIngredient = () => {
   const [ingredients, setIngredients] = useState<string[] | undefined>([]);
   const [value, setValue] = useState("");
-  const { searchByIngredients } = useStore();
+  const { searchByIngredients, getRandomRecipes } = useStore();
 
   const removeField = (ingredientToRemove: string) => {
     setIngredients((ingredients) => {
@@ -34,6 +34,11 @@ export const ByIngredient = () => {
     console.log(processedIngredients);
 
     searchByIngredients(processedIngredients);
+  };
+
+  const clearIngredients = () => {
+    setIngredients([]);
+    getRandomRecipes();
   };
 
   return (
@@ -66,6 +71,9 @@ export const ByIngredient = () => {
           type="submit"
         >
           search
+        </Button>
+        <Button variant="outlined" onClick={clearIngredients} size="small">
+          Clear
         </Button>
         <Button variant="outlined" onClick={addIngredient} size="small">
           Add
