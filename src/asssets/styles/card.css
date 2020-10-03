@@ -1,10 +1,14 @@
 .content .card {
-  max-width: 300px;
+  width: 300px;
   border-radius: 10%;
   transition: 0.3s;
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
   margin: 20px 0;
   margin-right: 20px;
+  display: flex;
+  min-height: 368px;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .content .card:hover {
@@ -22,15 +26,15 @@
 
 @media screen and (max-width: 1120px) {
   .content .card {
-    width: auto;
     border-radius: 5px;
-    max-width: 45%;
+    width: 45%;
   }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 600px) {
   .content .card {
     max-width: none;
+    width: 100%;
     margin-right: 0;
   }
 }
