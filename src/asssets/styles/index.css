@@ -2,6 +2,7 @@
   --primary-light: #f5fff6;
   --primary-medium: #b3e3cc;
   --primary-dark: #1a8e79;
+  --primary-fail: #f12954;
   --padding-xs: 0.5rem;
   --padding-sm: 1rem;
   --padding-md: 2rem;
@@ -63,8 +64,12 @@
   margin: var(--margin-xs) 0;
 }
 
-.btn-group > button:nth-child(2) {
-  margin-left: var(--margin-xs);
+.btn-group > button:not(:last-child) {
+  margin-right: var(--margin-xs);
+}
+
+button {
+  color: var(--primary-dark) !important;
 }
 
 @media screen and (max-width: 500px) {
