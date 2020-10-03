@@ -14,7 +14,7 @@ import "../asssets/styles/card.css";
 interface Props {
   getRecipeById: (id: string) => void;
   saveRecipe: (id: string) => void;
-  recipe: RecipeShort;
+  recipe: Recipe;
 }
 
 export const Card: React.FC<Props> = React.memo(
@@ -41,9 +41,8 @@ export const Card: React.FC<Props> = React.memo(
 
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            {recipe.strInstructions &&
+              recipe.strInstructions.substring(0, 100) + ". . ."}
           </Typography>
         </CardContent>
         <CardActions style={{ justifyContent: "space-between" }}>
