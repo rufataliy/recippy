@@ -4,9 +4,9 @@ type VoidFunction = () => void;
 
 interface DefaultContext {
   loading: boolean;
-  recipeList: RecipeShort[] | null;
+  recipeList: Recipe[] | null;
   searchByName: (args?: any) => void;
-  setRecipeList: Dispatch<SetStateAction<RecipeShort[] | null>> | VoidFunction;
+  setRecipeList: Dispatch<SetStateAction<Recipe[] | null>> | VoidFunction;
   reviewLoading: boolean;
   reviewBarOpen: boolean;
   getRecipeById: (id: string) => void;

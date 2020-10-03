@@ -2,7 +2,7 @@ import { useState, useMemo, useCallback } from "react";
 import { makeApiRequest } from "../utils";
 
 export const useGlobalState = () => {
-  const [recipeList, setRecipeList] = useState<RecipeShort[] | null>(null);
+  const [recipeList, setRecipeList] = useState<Recipe[] | null>(null);
   const [reviewBarOpen, setReviewBarOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [reviewLoading, setReviewLoading] = useState(false);
