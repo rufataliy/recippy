@@ -11,6 +11,7 @@ interface DefaultContext {
   reviewBarOpen: boolean;
   getRecipeById: (id: string) => void;
   reviewedRecipe: Recipe | null;
+  searchByCountry: (arg?: any) => void;
   resetReviewState: () => void;
   getRandomRecipes: (arg?: any) => void;
   searchByIngredients: (args?: any) => void;
@@ -27,5 +28,6 @@ export const Context = React.createContext<DefaultContext>({
   reviewedRecipe: null,
   getRandomRecipes: () => {},
   resetReviewState: () => {},
+  searchByCountry: () => {},
   searchByIngredients: () => {},
 });

@@ -110,7 +110,7 @@ export function Filter() {
             Category
           </TabPanel>
           <TabPanel selectedTab={selectedTab} tabName={COUNTRIES}>
-            Country
+            <ByCountry />
           </TabPanel>
         </div>
       </div>
