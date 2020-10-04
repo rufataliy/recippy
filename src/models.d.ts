@@ -34,3 +34,7 @@ interface RecipeShort {
 interface Area {
   strArea: string;
 }
+
+interface Category {
+  strCategory: string;
+}
