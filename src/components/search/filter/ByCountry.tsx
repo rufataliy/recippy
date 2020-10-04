@@ -31,7 +31,7 @@ export const ByCountry = () => {
   };
 
   return (
-    <div className="country-section">
+    <div className="country-section secondary-tab-section">
       <div className="tab-section">
         <AppBar className="filterBar" position="static" color="default">
           <Tabs
