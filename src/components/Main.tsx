@@ -4,6 +4,7 @@ import { ContentArea, Card, ContentLoader } from "../views";
 import { useStore } from "../customHooks/useStore";
 import { RecipeView } from "./RecipeView";
 import { noResult } from "../asssets/img";
+import { Route } from "react-router-dom";
 
 const saveRecipe = (id: string) => {
   const ids = window.localStorage.getItem("recipes");
@@ -35,7 +36,9 @@ export const Main: React.FC = () => {
 
   return (
     <>
-      <RecipeView open={Boolean(reviewBarOpen)} />
+      <Route path="/recipes/:id">
+        <RecipeView />
+      </Route>
       <ContentArea>
         <ContentLoader loading={loading}>
           {recipeList ? (

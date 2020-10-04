@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Tooltip from "@material-ui/core/Tooltip";
+import { Link } from "react-router-dom";
 import { ChevronRightIcon, SaveIcon } from "./icons";
 import "../asssets/styles/card.css";
 
@@ -52,12 +53,11 @@ export const Card: React.FC<Props> = React.memo(
             </IconButton>
           </Tooltip>
           <Tooltip title="See the recipe">
-            <IconButton
-              onClick={() => getRecipeById(idMeal)}
-              aria-label="see more"
-            >
-              <ChevronRightIcon />
-            </IconButton>
+            <Link to={`/recipes/${idMeal}`}>
+              <IconButton aria-label="see more">
+                <ChevronRightIcon />
+              </IconButton>
+            </Link>
           </Tooltip>
         </CardActions>
       </MUICard>

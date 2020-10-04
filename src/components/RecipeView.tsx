@@ -10,9 +10,10 @@ import { ContentLoader } from "../views";
 import { categories } from "../asssets/img/icons";
 import "../asssets/styles/review.css";
 import { useStore } from "../customHooks";
+import { useParams, useHistory } from "react-router-dom";
 
 interface Props {
-  open: boolean;
+  id?: string;
 }
 
 const mapIngredientToMeasure = (recipe: Recipe) => {
@@ -33,19 +34,32 @@ const mapIngredientToMeasure = (recipe: Recipe) => {
   return elements;
 };
 
-export const RecipeView: React.FC<Props> = ({ open }) => {
+export const RecipeView: React.FC<Props> = () => {
   const {
     reviewedRecipe: recipe,
     resetReviewState,
+    getRecipeById,
     reviewLoading,
   } = useStore();
 
+  const { id } = useParams<Props>();
+  const { push } = useHistory();
   useEffect(() => {
+    if (id) {
+      getRecipeById(id);
+    }
     return () => resetReviewState();
   }, [resetReviewState]);
 
   return (
-    <Sidebar position={"right"} open={open} toggleSidebar={resetReviewState}>
+    <Sidebar
+      position={"right"}
+      open={Boolean(id)}
+      toggleSidebar={() => {
+        push("/");
+        resetReviewState();
+      }}
+    >
       <div className="review-area">
         <ContentLoader loading={reviewLoading}>
           {recipe != null ? (
@@ -92,7 +106,7 @@ export const RecipeView: React.FC<Props> = ({ open }) => {
                       <img
                         className="custom-icon"
                         src={categories[recipe.strCategory]}
-                        alt=""
+                        alt={recipe.strCategory}
                       />
                     }
                   />
