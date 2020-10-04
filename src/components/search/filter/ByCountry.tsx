@@ -17,12 +17,7 @@ export const ByCountry = () => {
     );
   }, []);
   const handleChange = (value: string) => [setSelectedTab(value)];
-  const getRecipesByCountry = (value: string) => {
-    console.log(value);
-  };
-  const search = () => {
-    searchByCountry(selectedTab);
-  };
+
   const clearFilter = () => {
     if (selectedTab) {
       setSelectedTab(null);
@@ -46,7 +41,6 @@ export const ByCountry = () => {
               countries.map((country) => {
                 return (
                   <Tab
-                    onClick={getRecipesByCountry}
                     className="tab-btn"
                     label={country.strArea}
                     value={country.strArea}
@@ -58,7 +52,7 @@ export const ByCountry = () => {
       </div>
       <div className="btn-group">
         <Button
-          onClick={search}
+          onClick={() => searchByCountry(selectedTab)}
           size="large"
           className="bg-btn"
           fullWidth
