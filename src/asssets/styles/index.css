@@ -68,8 +68,20 @@
   margin-right: var(--margin-xs);
 }
 
+.btn-group > button {
+  border: 1px solid var(--primary-dark);
+}
+
 button {
   color: var(--primary-dark) !important;
+}
+
+.tab-panel-wrapper {
+  height: 100%;
+}
+
+.tab-panel-wrapper > div {
+  height: 100%;
 }
 
 @media screen and (max-width: 500px) {
