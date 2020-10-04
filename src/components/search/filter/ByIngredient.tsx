@@ -60,7 +60,7 @@ export const ByIngredient = () => {
     searchByIngredients(processedIngredients);
   };
 
-  const clearIngredients = () => {
+  const clearFilter = () => {
     setIngredients(null);
     setError(false);
     if (ingredients) {
@@ -100,7 +100,7 @@ export const ByIngredient = () => {
         >
           search
         </Button>
-        <Button variant="outlined" onClick={clearIngredients} size="small">
+        <Button variant="outlined" onClick={clearFilter} size="small">
           Clear
         </Button>
         <Button variant="outlined" onClick={addIngredient} size="small">
