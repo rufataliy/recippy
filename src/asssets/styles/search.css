@@ -152,6 +152,10 @@
   background: var(--primary-medium);
 }
 
+#search-area .ingredient-chips {
+  margin-top: var(--margin-xs);
+}
+
 #search-area .ingredient-section .form-control > *:first-child {
   flex-grow: 1;
 }
