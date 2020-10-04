@@ -30,3 +30,7 @@ interface RecipeShort {
   strMeal: string;
   strMealThumb: string;
 }
+
+interface Area {
+  strArea: string;
+}
