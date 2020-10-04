@@ -5,6 +5,8 @@ import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { ByName } from "./ByName";
 import { ByIngredient } from "./ByIngredient";
+import { ByCountry } from "./ByCountry";
+import { ByCategory } from "./ByCategory";
 import { ExpandLessIcon, ExpandMoreIcon } from "../../../views/icons";
 
 const CATEGORIES = "categories";
@@ -107,7 +109,7 @@ export function Filter() {
             <ByIngredient />
           </TabPanel>
           <TabPanel selectedTab={selectedTab} tabName={CATEGORIES}>
-            Category
+            <ByCategory />
           </TabPanel>
           <TabPanel selectedTab={selectedTab} tabName={COUNTRIES}>
             <ByCountry />
