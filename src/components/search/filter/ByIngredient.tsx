@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
-import Input from "@material-ui/core/Input";
 import { useStore } from "../../../customHooks";
 
 export const ByIngredient = () => {
@@ -49,18 +48,28 @@ export const ByIngredient = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (Boolean(value)) {
+        return addIngredient();
+      } else if (!Boolean(value) && ingredients) {
+        return search();
+      } else {
+        return setError(true);
+      }
+    }
+  };
   // TODO: process multiple white spaces to be replaces with one underscore
 
   const search = () => {
     const processedIngredients = ingredients
       ?.map((ingredient) => ingredient.replace(" ", "_"))
       .join(",");
-    console.log(processedIngredients);
-
     searchByIngredients(processedIngredients);
   };
 
   const clearFilter = () => {
+    setValue("");
     setIngredients(null);
     setError(false);
     if (ingredients) {
@@ -76,6 +85,7 @@ export const ByIngredient = () => {
           value={value}
           data-error={error}
           onChange={onChange}
+          onKeyPress={handleKeyDown}
         />
       </div>
       <div className="ingredient-chips">

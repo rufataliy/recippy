@@ -44,12 +44,12 @@
 #search-area input[data-error="true"]::placeholder {
   color: var(--primary-fail);
 }
-#search-area input:focus {
+/* #search-area input:focus {
   border-bottom: 2px solid var(--primary-dark);
-}
-#search-area input:focus::placeholder {
+} */
+/* #search-area input:focus::placeholder {
   color: var(--primary-dark);
-}
+} */
 #search-area .search-controls {
   margin-left: -3.7rem;
 }
