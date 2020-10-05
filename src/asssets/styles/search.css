@@ -32,13 +32,16 @@
   width: 100%;
   border: none;
   padding: var(--padding-xs);
-  padding-right: 2rem;
   background-color: transparent;
   color: var(--primary-dark);
   font-size: var(--font-md);
   outline: none;
   border-bottom: 2px solid grey;
   transition: border 0.2s;
+}
+
+#search-area input::placeholder {
+  font-size: 1rem;
 }
 
 #search-area input[data-error="true"] {
@@ -191,4 +194,15 @@
 
 #search-area .loader {
   height: 40px;
+}
+
+@media screen and (max-width: 500px) {
+  #search-area .form-control {
+    margin-top: var(--margin-xs);
+  }
+  #search-area .ingredient-chips {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+  }
 }
