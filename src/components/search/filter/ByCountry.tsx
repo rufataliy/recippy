@@ -25,20 +25,31 @@ export const ByCountry = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (Boolean(selectedTab)) {
+        return searchByCountry(selectedTab);
+      }
+    }
+  };
+
   return (
-    <div className="country-section secondary-tab-section">
+    <div
+      onKeyDown={handleKeyDown}
+      className="country-section secondary-tab-section"
+    >
       <div className="tab-section">
         <AppBar className="filterBar" position="static" color="default">
-          <Tabs
-            value={selectedTab}
-            onChange={(event, value) => handleChange(value)}
-            variant="scrollable"
-            scrollButtons="on"
-            className="filter-tab-header"
-            aria-label="scrollable auto tabs example"
-          >
-            {countries &&
-              countries.map((country) => {
+          {countries && (
+            <Tabs
+              value={selectedTab}
+              onChange={(event, value) => handleChange(value)}
+              variant="scrollable"
+              scrollButtons="on"
+              className="filter-tab-header"
+              aria-label="scrollable auto tabs example"
+            >
+              {countries.map((country) => {
                 return (
                   <Tab
                     className="tab-btn"
@@ -47,7 +58,8 @@ export const ByCountry = () => {
                   />
                 );
               })}
-          </Tabs>
+            </Tabs>
+          )}
         </AppBar>
       </div>
       <div className="btn-group">
