@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -12,16 +12,16 @@ export const ByCategory = () => {
   const [categories, setCategories] = useState<Category[] | null>(null);
   const [selectedTab, setSelectedTab] = useState<string | null>(null);
   const { searchByCategory, getRandomRecipes } = useStore();
+
   useEffect(() => {
     makeApiRequest(
       `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/list.php?c=list`,
       (data) => setCategories(data.meals)
     );
   }, []);
+
   const handleChange = (value: string) => [setSelectedTab(value)];
-  const getRecipesByCountry = (value: string) => {
-    console.log(value);
-  };
+
   const search = () => {
     searchByCategory(selectedTab);
   };
@@ -32,35 +32,50 @@ export const ByCategory = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (Boolean(selectedTab)) {
+        return searchByCategory(selectedTab);
+      }
+    }
+  };
+
   return (
-    <div className="country-section secondary-tab-section">
+    <div
+      onKeyDown={handleKeyDown}
+      className="country-section secondary-tab-section"
+    >
       <div className="tab-section">
         <AppBar className="filterBar" position="static" color="default">
-          <Tabs
-            value={selectedTab}
-            onChange={(event, value) => handleChange(value)}
-            variant="scrollable"
-            scrollButtons="on"
-            className="filter-tab-header"
-            aria-label="scrollable auto tabs example"
-          >
-            {categories &&
-              categories.map((category) => {
-                return (
-                  <Tab
-                    onClick={getRecipesByCountry}
-                    className="tab-btn"
-                    label={category.strCategory}
-                    value={category.strCategory}
-                  />
-                );
+          {categories && (
+            <Tabs
+              value={selectedTab}
+              onChange={(event, value) => handleChange(value)}
+              variant="scrollable"
+              scrollButtons="on"
+              className="filter-tab-header"
+              aria-label="scrollable auto tabs example"
+            >
+              {categories.map((category) => {
+                if (category) {
+                  return (
+                    <Tab
+                      className="tab-btn"
+                      label={category.strCategory}
+                      value={category.strCategory}
+                    />
+                  );
+                } else {
+                  return 0;
+                }
               })}
-          </Tabs>
+            </Tabs>
+          )}
         </AppBar>
       </div>
       <div className="btn-group">
         <Button
-          onClick={search}
+          onClick={() => searchByCategory(selectedTab)}
           size="large"
           className="bg-btn"
           fullWidth
