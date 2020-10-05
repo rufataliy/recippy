@@ -6,17 +6,19 @@ import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import { makeApiRequest } from "../../../utils";
 import { useStore } from "../../../customHooks";
-import { categories as icons } from "../../../asssets/img/icons";
+import { ContentLoader } from "../../../views";
 
 export const ByCategory = () => {
   const [categories, setCategories] = useState<Category[] | null>(null);
   const [selectedTab, setSelectedTab] = useState<string | null>(null);
   const { searchByCategory, getRandomRecipes } = useStore();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     makeApiRequest(
       `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/list.php?c=list`,
-      (data) => setCategories(data.meals)
+      (data) => setCategories(data.meals),
+      setLoading
     );
   }, []);
 
@@ -47,30 +49,32 @@ export const ByCategory = () => {
     >
       <div className="tab-section">
         <AppBar className="filterBar" position="static" color="default">
-          {categories && (
-            <Tabs
-              value={selectedTab}
-              onChange={(event, value) => handleChange(value)}
-              variant="scrollable"
-              scrollButtons="on"
-              className="filter-tab-header"
-              aria-label="scrollable auto tabs example"
-            >
-              {categories.map((category) => {
-                if (category) {
-                  return (
-                    <Tab
-                      className="tab-btn"
-                      label={category.strCategory}
-                      value={category.strCategory}
-                    />
-                  );
-                } else {
-                  return 0;
-                }
-              })}
-            </Tabs>
-          )}
+          <ContentLoader loading={loading}>
+            {categories && (
+              <Tabs
+                value={selectedTab}
+                onChange={(event, value) => handleChange(value)}
+                variant="scrollable"
+                scrollButtons="on"
+                className="filter-tab-header"
+                aria-label="scrollable auto tabs example"
+              >
+                {categories.map((category) => {
+                  if (category) {
+                    return (
+                      <Tab
+                        className="tab-btn"
+                        label={category.strCategory}
+                        value={category.strCategory}
+                      />
+                    );
+                  } else {
+                    return 0;
+                  }
+                })}
+              </Tabs>
+            )}
+          </ContentLoader>
         </AppBar>
       </div>
       <div className="btn-group">

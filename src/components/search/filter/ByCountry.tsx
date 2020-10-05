@@ -5,15 +5,19 @@ import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { makeApiRequest } from "../../../utils";
 import { useStore } from "../../../customHooks";
+import { ContentLoader } from "../../../views";
 
 export const ByCountry = () => {
   const [countries, setCountries] = useState<Area[] | null>(null);
   const [selectedTab, setSelectedTab] = useState<string | null>(null);
   const { searchByCountry, getRandomRecipes } = useStore();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     makeApiRequest(
       `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/list.php?a=list`,
-      (data) => setCountries(data.meals)
+      (data) => setCountries(data.meals),
+      setLoading
     );
   }, []);
   const handleChange = (value: string) => [setSelectedTab(value)];
@@ -40,26 +44,28 @@ export const ByCountry = () => {
     >
       <div className="tab-section">
         <AppBar className="filterBar" position="static" color="default">
-          {countries && (
-            <Tabs
-              value={selectedTab}
-              onChange={(event, value) => handleChange(value)}
-              variant="scrollable"
-              scrollButtons="on"
-              className="filter-tab-header"
-              aria-label="scrollable auto tabs example"
-            >
-              {countries.map((country) => {
-                return (
-                  <Tab
-                    className="tab-btn"
-                    label={country.strArea}
-                    value={country.strArea}
-                  />
-                );
-              })}
-            </Tabs>
-          )}
+          <ContentLoader loading={loading}>
+            {countries && (
+              <Tabs
+                value={selectedTab}
+                onChange={(event, value) => handleChange(value)}
+                variant="scrollable"
+                scrollButtons="on"
+                className="filter-tab-header"
+                aria-label="scrollable auto tabs example"
+              >
+                {countries.map((country) => {
+                  return (
+                    <Tab
+                      className="tab-btn"
+                      label={country.strArea}
+                      value={country.strArea}
+                    />
+                  );
+                })}
+              </Tabs>
+            )}
+          </ContentLoader>
         </AppBar>
       </div>
       <div className="btn-group">
