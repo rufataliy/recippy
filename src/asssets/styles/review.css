@@ -45,3 +45,18 @@
 .chip img {
   margin-left: 10px !important;
 }
+
+@media screen and (max-width: 500px) {
+  .review-area {
+    max-width: 100vw;
+  }
+  .review-area > * {
+    margin-bottom: var(--margin-xs);
+  }
+  .review-info {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding-bottom: var(--padding-xs);
+  }
+}

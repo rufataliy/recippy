@@ -125,6 +125,7 @@
 
 #search-area .tab-content-filter {
   height: 26vh;
+  min-height: 160px;
   overflow: hidden;
   transition: 0.3s;
 }
