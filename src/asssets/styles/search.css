@@ -133,6 +133,7 @@
 #search-area .collapsed {
   height: 0px;
   overflow: hidden;
+  min-height: 0px;
 }
 
 #search-area .ingredient-section {
