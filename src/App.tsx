@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { About, Layout, Main, HireMe } from "./components";
 import { Route, Router, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -6,6 +6,17 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 function App() {
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      if ((e.target as typeof window)?.innerWidth < 500) {
+        const root = document.getElementById("root");
+        if (root) {
+          root.style.height = window.innerHeight.toString() + "px";
+        }
+      }
+    });
+  }, []);
+
   return (
     <Router history={history}>
       <Switch>
