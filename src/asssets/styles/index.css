@@ -86,17 +86,29 @@ button {
   height: 100%;
 }
 
-.hide-on-large {
-  display: none;
+.close-btn {
+  top: 0;
+  right: 0;
+  background-color: var(--primary-light) !important;
+  position: absolute !important;
+}
+
+.about,
+.hire-me {
+  padding-top: var(--padding-md);
+}
+
+@media screen and (min-width: 501px) {
+  .hide-on-large {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .hide-on-mobile {
     display: none;
   }
-  .hide-on-large {
-    display: block;
-  }
+
   .btn-group button {
     padding-top: 0;
     padding-bottom: 0;

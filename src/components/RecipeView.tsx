@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Sidebar } from "../views/Sidebar";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Chip from "@material-ui/core/Chip";
-import { VideoIcon, FlagIcon, LinkIcon } from "../views/icons";
+import { VideoIcon, FlagIcon, LinkIcon, CloseIcon } from "../views/icons";
 import { ContentLoader } from "../views";
 import { categories } from "../asssets/img/icons";
-import "../asssets/styles/review.css";
 import { useStore } from "../customHooks";
 import { useParams, useHistory } from "react-router-dom";
+import "../asssets/styles/review.css";
+import IconButton from "@material-ui/core/IconButton";
 
 interface Props {
   id?: string;
@@ -44,6 +45,7 @@ export const RecipeView: React.FC<Props> = () => {
 
   const { id } = useParams<Props>();
   const { push } = useHistory();
+
   useEffect(() => {
     if (id) {
       getRecipeById(id);
@@ -51,20 +53,21 @@ export const RecipeView: React.FC<Props> = () => {
     return () => resetReviewState();
   }, [resetReviewState]);
 
+  const close = () => {
+    push("/");
+    resetReviewState();
+  };
+
   return (
-    <Sidebar
-      position={"right"}
-      open={Boolean(id)}
-      toggleSidebar={() => {
-        push("/");
-        resetReviewState();
-      }}
-    >
+    <Sidebar position={"right"} open={Boolean(id)} toggleSidebar={close}>
       <div className="review-area">
         <ContentLoader loading={reviewLoading}>
           {recipe != null ? (
             <>
               <div className="review-img">
+                <IconButton className="hide-on-large close-btn" onClick={close}>
+                  <CloseIcon />
+                </IconButton>
                 <img src={recipe.strMealThumb} alt="" />
               </div>
               <div className="review-wrapper">
