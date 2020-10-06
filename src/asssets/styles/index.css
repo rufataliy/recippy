@@ -12,7 +12,7 @@
   --margin-md: 2.3rem;
   --margin-lg: 3rem;
   --font-reg: inherit;
-  --font-md: 1.2rem;
+  --font-sm: 1.2rem;
   --scrollbar-width: 10px;
 }
 
@@ -86,9 +86,16 @@ button {
   height: 100%;
 }
 
+.hide-on-large {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
   .hide-on-mobile {
     display: none;
+  }
+  .hide-on-large {
+    display: block;
   }
   .btn-group button {
     padding-top: 0;
