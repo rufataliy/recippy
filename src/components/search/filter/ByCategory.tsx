@@ -24,9 +24,12 @@ export const ByCategory = () => {
 
   const handleChange = (value: string) => [setSelectedTab(value)];
 
-  const search = () => {
-    searchByCategory(selectedTab);
+  const searchHandler = () => {
+    if (selectedTab) {
+      searchByCategory(selectedTab);
+    }
   };
+
   const clearFilter = () => {
     if (selectedTab) {
       setSelectedTab(null);
@@ -37,7 +40,7 @@ export const ByCategory = () => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       if (Boolean(selectedTab)) {
-        return searchByCategory(selectedTab);
+        return searchHandler();
       }
     }
   };
@@ -79,7 +82,7 @@ export const ByCategory = () => {
       </div>
       <div className="btn-group">
         <Button
-          onClick={() => searchByCategory(selectedTab)}
+          onClick={() => searchHandler()}
           size="large"
           className="bg-btn"
           fullWidth

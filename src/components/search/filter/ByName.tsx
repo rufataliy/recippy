@@ -16,11 +16,15 @@ export const ByName: React.FC = () => {
     setValue(e.target.value);
   };
 
+  const searchHandler = () => {
+    if (Boolean(value)) {
+      return searchByName(value);
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      if (Boolean(value)) {
-        return searchByName(value);
-      }
+      searchHandler();
     }
   };
 
@@ -36,7 +40,7 @@ export const ByName: React.FC = () => {
       </div>
       <div className="btn-group">
         <Button
-          onClick={() => searchByName(value)}
+          onClick={() => searchHandler()}
           size="large"
           className="bg-btn"
           fullWidth

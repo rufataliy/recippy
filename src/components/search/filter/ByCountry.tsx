@@ -20,7 +20,8 @@ export const ByCountry = () => {
       setLoading
     );
   }, []);
-  const handleChange = (value: string) => [setSelectedTab(value)];
+
+  const handleChange = (value: string) => setSelectedTab(value);
 
   const clearFilter = () => {
     if (selectedTab) {
@@ -29,11 +30,15 @@ export const ByCountry = () => {
     }
   };
 
+  const searchHandler = () => {
+    if (Boolean(selectedTab)) {
+      return searchByCountry(selectedTab);
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      if (Boolean(selectedTab)) {
-        return searchByCountry(selectedTab);
-      }
+      searchHandler();
     }
   };
 
@@ -70,7 +75,7 @@ export const ByCountry = () => {
       </div>
       <div className="btn-group">
         <Button
-          onClick={() => searchByCountry(selectedTab)}
+          onClick={() => searchHandler()}
           size="large"
           className="bg-btn"
           fullWidth

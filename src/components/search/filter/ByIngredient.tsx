@@ -62,6 +62,7 @@ export const ByIngredient = () => {
   // TODO: process multiple white spaces to be replaces with one underscore
 
   const search = () => {
+    if (!ingredients) return;
     const processedIngredients = ingredients
       ?.map((ingredient) => ingredient.replace(" ", "_"))
       .join(",");
