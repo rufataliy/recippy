@@ -82,7 +82,7 @@ export const ByIngredient = () => {
     <div className="ingredient-section">
       <div className="form-control">
         <input
-          placeholder="Enter ingredient . . ."
+          placeholder="Add an ingredient . . ."
           value={value}
           data-error={error}
           onChange={onChange}
