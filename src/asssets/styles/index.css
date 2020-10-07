@@ -98,6 +98,10 @@ button {
   padding-top: var(--padding-md);
 }
 
+.no-result-img {
+  margin: auto;
+}
+
 @media screen and (min-width: 501px) {
   .hide-on-large {
     display: none !important;
