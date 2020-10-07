@@ -12,7 +12,11 @@ import { default as Side } from "./side.svg";
 import { default as Starter } from "./starters.svg";
 import { default as Vegetarian } from "./vegetarian.svg";
 
-export const categories = {
+interface Categories {
+  [key: string]: string;
+}
+
+export const categories: Categories = {
   Vegan,
   Beef,
   Breakfast,
