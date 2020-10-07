@@ -6,19 +6,8 @@ import { RecipeView } from "./RecipeView";
 import { noResult } from "../asssets/img";
 import { Route } from "react-router-dom";
 
-const saveRecipe = (id: string) => {
-  const ids = window.localStorage.getItem("recipes");
-  window.localStorage.setItem("recipes", ids ? ids + `,${id}` : id);
-};
-
 export const Main: React.FC = () => {
-  const {
-    loading,
-    recipeList,
-    getRandomRecipes,
-    getRecipeById,
-    reviewBarOpen,
-  } = useStore();
+  const { loading, recipeList, getRandomRecipes, getRecipeById } = useStore();
 
   useEffect(() => {
     getRandomRecipes();
@@ -26,12 +15,7 @@ export const Main: React.FC = () => {
 
   const renderRecipes = () =>
     recipeList?.map((recipe) => (
-      <Card
-        getRecipeById={getRecipeById}
-        saveRecipe={saveRecipe}
-        key={recipe.idMeal}
-        recipe={recipe}
-      />
+      <Card getRecipeById={getRecipeById} key={recipe.idMeal} recipe={recipe} />
     ));
 
   return (
@@ -46,6 +30,7 @@ export const Main: React.FC = () => {
           ) : (
             <img
               src={noResult}
+              className="no-result-img"
               alt="no result found, check your spelling or try another name"
             />
           )}
