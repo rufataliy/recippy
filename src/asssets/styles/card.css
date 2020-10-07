@@ -24,6 +24,11 @@
   overflow: hidden;
 }
 
+.card-short-info {
+  height: 70px;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 1120px) {
   .content .card {
     border-radius: 5px;
