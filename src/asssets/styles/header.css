@@ -1,15 +1,16 @@
 .header {
-    background-color: var(--primary-medium);
-    color: var(--primary-dark);
+  background-color: var(--primary-medium);
+  color: var(--primary-dark);
 }
 
 .logo {
-    height: 100%;
-    width: 100px;
-    margin: auto;
-    display: flex;
+  height: 100%;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo img {
-    width: 100%;
+  width: 100%;
 }
