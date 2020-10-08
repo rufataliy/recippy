@@ -2,10 +2,10 @@
   height: 100%;
   width: 100%;
   padding: var(--padding-md) 0;
+  text-align: center;
 }
 
 .credits h4 {
-  text-align: center;
   margin-bottom: var(--margin-sm);
 }
 .credits p a {
@@ -33,11 +33,21 @@
   justify-content: center;
 }
 
+.images a,
+.techno a {
+  max-width: 100%;
+}
+
 .credits-img {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: var(--margin-sm);
+  overflow: hidden;
+}
+
+.icons .credits-img {
+  overflow: unset;
 }
 
 .credits-img img {
@@ -55,4 +65,11 @@
 
 .icons .credits-img img {
   height: 60px;
+}
+
+@media screen and (max-width: 695px) {
+  .images .credits-img,
+  .techno .credits-img {
+    margin-right: 0;
+  }
 }
