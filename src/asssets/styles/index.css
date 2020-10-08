@@ -2,6 +2,7 @@
   --primary-light: #f5fff6;
   --primary-medium: #b3e3cc;
   --primary-dark: #1a8e79;
+  --primary-dark-grey: #4e4e4e;
   --primary-fail: #f12954;
   --padding-xs: 0.5rem;
   --padding-sm: 1rem;
@@ -100,6 +101,12 @@ button {
 
 .no-result-img {
   margin: auto;
+}
+
+.horizontal-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 @media screen and (min-width: 501px) {

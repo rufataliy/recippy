@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { About, Layout, Main, HireMe } from "./components";
+import { About, Layout, Main, HireMe, Credits } from "./components";
 import { Route, Router, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -23,6 +23,7 @@ function App() {
         <Layout>
           <Route path="/about" component={About} />
           <Route path="/hire_me" component={HireMe} />
+          <Route path="/credits" component={Credits} />
           <Route exact path={["/", "/recipes/:id"]} component={Main} />
         </Layout>
       </Switch>

@@ -4,7 +4,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { HomeIcon, AboutIcon, WorkIcon } from "./icons";
+import { HomeIcon, AboutIcon, WorkIcon, FavoriteIcon } from "./icons";
 import { Link } from "react-router-dom";
 import "../asssets/styles/nav.css";
 
@@ -25,6 +25,14 @@ export const Nav: React.FC = () => {
             <AboutIcon />
           </ListItemIcon>
           <ListItemText primary={"About"} />
+        </ListItem>
+      </Link>
+      <Link to="/credits">
+        <ListItem button key={"credits"}>
+          <ListItemIcon>
+            <FavoriteIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Credits"} />
         </ListItem>
       </Link>
       <Divider />
