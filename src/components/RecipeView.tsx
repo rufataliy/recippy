@@ -108,7 +108,7 @@ export const RecipeView: React.FC<Props> = () => {
                     icon={
                       <img
                         className="custom-icon"
-                        src={categories[recipe.strCategory]}
+                        src={categories[recipe.strCategory].img}
                         alt={recipe.strCategory}
                       />
                     }
