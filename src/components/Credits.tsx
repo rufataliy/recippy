@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import Chip from "@material-ui/core/Chip";
 import { ContentArea } from "../views";
 import { categories } from "../asssets/img";
 import { about, hire_me, react, material } from "../asssets/img";
@@ -10,12 +9,10 @@ const renderIcons = () => {
   const keys = Object.keys(categories);
   return keys.map((key) => {
     return (
-      <Chip
-        className="chip"
-        variant="outlined"
-        label={key}
-        icon={<img className="custom-icon" src={categories[key]} alt={key} />}
-      />
+      <div className="credits-img">
+        <img src={categories[key].img} alt={key} />
+        {categories[key].attr}
+      </div>
     );
   });
 };

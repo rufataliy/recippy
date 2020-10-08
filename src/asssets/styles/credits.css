@@ -8,7 +8,9 @@
   text-align: center;
   margin-bottom: var(--margin-sm);
 }
-
+.credits p a {
+  text-decoration: underline;
+}
 .credits a {
   transition: 0.2s;
 }
@@ -45,4 +47,12 @@
 
 .api .credits-content {
   text-align: center;
+}
+
+.icons .credits-img {
+  text-align: center;
+}
+
+.icons .credits-img img {
+  height: 60px;
 }
