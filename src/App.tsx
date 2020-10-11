@@ -5,14 +5,19 @@ import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
 
+const setRootHeight = () => {
+  const root = document.getElementById("root");
+  if (root) {
+    root.style.height = window.innerHeight.toString() + "px";
+  }
+};
+
 function App() {
   useEffect(() => {
+    setRootHeight();
     window.addEventListener("resize", (e) => {
       if ((e.target as typeof window)?.innerWidth < 500) {
-        const root = document.getElementById("root");
-        if (root) {
-          root.style.height = window.innerHeight.toString() + "px";
-        }
+        setRootHeight();
       }
     });
   }, []);
