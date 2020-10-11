@@ -94,6 +94,7 @@
   top: 0px;
   height: 3px;
   bottom: auto;
+  background-color: var(--primary-dark);
 }
 
 #search-area .filter-tab-header,
