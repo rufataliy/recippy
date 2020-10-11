@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback } from "react";
 import { makeApiRequest } from "../utils";
 
-const REACT_APP_API_KEY = process.env;
+const { REACT_APP_API_KEY } = process.env;
 
 export const useGlobalState = () => {
   const [recipeList, setRecipeList] = useState<Recipe[] | null>(null);
@@ -82,7 +82,7 @@ export const useGlobalState = () => {
     () => (id: string) => {
       openReviewBar();
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
+        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/lookup.php?i=${id}`,
         (data) => setReviewedRecipe(data.meals[0]),
         setReviewLoading
       );
