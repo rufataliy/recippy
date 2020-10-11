@@ -19,7 +19,7 @@ export const Nav: React.FC = () => {
           <ListItemText primary={"Home"} />
         </ListItem>
       </Link>
-      <Link to="about">
+      <Link to="/about">
         <ListItem button key={"about"}>
           <ListItemIcon>
             <AboutIcon />
