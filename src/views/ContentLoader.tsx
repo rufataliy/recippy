@@ -1,5 +1,5 @@
 import React from "react";
-import { loader } from "../asssets/img";
+import { loader } from "@/asssets/img";
 
 interface Props {
   loading: boolean;

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Search } from "./search";
-import { ContentArea, Card, ContentLoader } from "../views";
-import { useStore } from "../customHooks/useStore";
-import { RecipeView } from "./RecipeView";
-import { noResult } from "../asssets/img";
 import { Route } from "react-router-dom";
+import { ContentArea, Card, ContentLoader } from "@/views";
+import { useStore } from "@/customHooks/useStore";
+import { noResult } from "@/asssets/img";
+import { RecipeView } from "./RecipeView";
+import { Search } from "./search";
 
 export const Main: React.FC = () => {
   const { loading, recipeList, getRandomRecipes, getRecipeById } = useStore();

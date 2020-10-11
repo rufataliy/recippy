@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
-import { useStore } from "../../../customHooks";
+import { useStore } from "@/customHooks";
 
 export const ByName: React.FC = () => {
   const { searchByName, getRandomRecipes } = useStore();

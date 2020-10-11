@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { About, Layout, Main, HireMe, Credits } from "./components";
+import { About, Layout, Main, HireMe, Credits } from "@/components";
 import { Route, Router, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 

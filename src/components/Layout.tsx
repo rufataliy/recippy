@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header, SideNav } from "../views";
+import { Header, SideNav } from "@/views";
 
 export const Layout: React.FC = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

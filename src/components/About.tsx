@@ -1,8 +1,8 @@
 import React from "react";
-import { ContentArea } from "../views";
-import { about } from "../asssets/img";
+import { ContentArea } from "@/views";
+import { about } from "@/asssets/img";
 import Typography from "@material-ui/core/Typography";
-import "../asssets/styles/about.css";
+import "@/asssets/styles/about.css";
 
 export const About = () => {
   return (

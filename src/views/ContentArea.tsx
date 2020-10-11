@@ -1,5 +1,5 @@
 import React from "react";
-import "../asssets/styles/content.css";
+import "@/asssets/styles/content.css";
 
 export const ContentArea: React.FC = ({ children }) => {
   return (

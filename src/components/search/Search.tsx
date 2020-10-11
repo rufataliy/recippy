@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchArea } from "../../views";
+import { SearchArea } from "@/views";
 import { Filter } from "./filter/Filter";
 
 export const Search = () => {

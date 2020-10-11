@@ -1,9 +1,9 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import { ContentArea } from "../views";
-import "../asssets/styles/hireme.css";
-import { hire_me } from "../asssets/img";
+import { ContentArea } from "@/views";
+import { hire_me } from "@/asssets/img";
+import "@/asssets/styles/hireme.css";
 
 export const HireMe = () => {
   return (

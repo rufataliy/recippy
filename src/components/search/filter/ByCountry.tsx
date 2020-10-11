@@ -3,9 +3,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
-import { makeApiRequest } from "../../../utils";
-import { useStore } from "../../../customHooks";
-import { ContentLoader } from "../../../views";
+import { makeApiRequest } from "@/utils";
+import { useStore } from "@/customHooks";
+import { ContentLoader } from "@/views";
 
 export const ByCountry = () => {
   const [countries, setCountries] = useState<Area[] | null>(null);

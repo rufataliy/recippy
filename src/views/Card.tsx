@@ -8,8 +8,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Link } from "react-router-dom";
-import { ChevronRightIcon } from "./icons";
-import "../asssets/styles/card.css";
+import { ChevronRightIcon } from "@/views/icons";
+import "@/asssets/styles/card.css";
 
 interface Props {
   getRecipeById: (id: string) => void;

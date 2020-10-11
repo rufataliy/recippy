@@ -7,7 +7,7 @@ import { ByName } from "./ByName";
 import { ByIngredient } from "./ByIngredient";
 import { ByCountry } from "./ByCountry";
 import { ByCategory } from "./ByCategory";
-import { ExpandLessIcon, ExpandMoreIcon } from "../../../views/icons";
+import { ExpandLessIcon, ExpandMoreIcon } from "@/views/icons";
 
 const CATEGORIES = "categories";
 const INGREDIENTS = "ingredients";

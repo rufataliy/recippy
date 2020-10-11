@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
-import { useStore } from "../../../customHooks";
+import { useStore } from "@/customHooks";
 
 export const ByIngredient = () => {
   const [ingredients, setIngredients] = useState<string[] | null>(null);

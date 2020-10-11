@@ -1,8 +1,8 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton } from "@material-ui/core";
-import { MenuIcon } from "./icons";
-import { logo } from "../asssets/img";
-import "../asssets/styles/header.css";
+import { MenuIcon } from "@/views/icons";
+import { logo } from "@/asssets/img";
+import "@/asssets/styles/header.css";
 
 interface Props {
   toggleSidebar: () => void;

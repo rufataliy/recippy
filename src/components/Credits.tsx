@@ -1,9 +1,9 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { ContentArea } from "../views";
-import { categories } from "../asssets/img";
-import { about, hire_me, react, material } from "../asssets/img";
-import "../asssets/styles/credits.css";
+import { ContentArea } from "@/views";
+import { categories } from "@/asssets/img";
+import { about, hire_me, react, material } from "@/asssets/img";
+import "@/asssets/styles/credits.css";
 
 const renderIcons = () => {
   const keys = Object.keys(categories);
