@@ -26,7 +26,7 @@ export const Card: React.FC<Props> = React.memo(({ recipe }) => {
         classes={{ content: "card-content" }}
         title={
           <Tooltip title={strMeal}>
-            <p>{strMeal}</p>
+            <Typography variant="h6">{strMeal}</Typography>
           </Tooltip>
         }
       />
@@ -39,10 +39,11 @@ export const Card: React.FC<Props> = React.memo(({ recipe }) => {
       </CardContent>
       <CardActions style={{ justifyContent: "flex-end" }}>
         <Tooltip title="See the recipe">
-          <Link to={`/recipes/${idMeal}`}>
-            <Button endIcon={<ChevronRightIcon />} aria-label="see more">
-              View
-            </Button>
+          <Link
+            to={`/recipes/${idMeal}`}
+            aria-label={`read more about ${strMeal}`}
+          >
+            <Button endIcon={<ChevronRightIcon />}>View</Button>
           </Link>
         </Tooltip>
       </CardActions>
