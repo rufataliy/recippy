@@ -71,7 +71,12 @@
 #search-area .bg-btn {
   background: var(--primary-medium);
 }
-
+.bigger-btn {
+  flex-grow: 2.5;
+}
+.smaller-btn {
+  flex-grow: 1;
+}
 #search-area .tab-title {
   font-weight: bold;
   color: var(--primary-dark);

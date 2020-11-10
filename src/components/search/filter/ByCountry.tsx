@@ -77,13 +77,12 @@ export const ByCountry = () => {
         <Button
           onClick={() => searchHandler()}
           size="large"
-          className="bg-btn"
-          fullWidth
+          className="bg-btn bigger-btn"
           type="submit"
         >
           search
         </Button>
-        <Button size="small" onClick={clearFilter}>
+        <Button className="smaller-btn" size="small" onClick={clearFilter}>
           Clear
         </Button>
       </div>

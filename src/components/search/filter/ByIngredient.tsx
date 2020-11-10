@@ -105,17 +105,26 @@ export const ByIngredient = () => {
         <Button
           onClick={search}
           size="large"
-          className="bg-btn"
-          fullWidth
+          className="bg-btn bigger-btn"
           type="submit"
         >
           search
         </Button>
-        <Button variant="outlined" onClick={clearFilter} size="small">
-          Clear
-        </Button>
-        <Button variant="outlined" onClick={addIngredient} size="small">
+        <Button
+          className="smaller-btn"
+          variant="outlined"
+          onClick={addIngredient}
+          size="small"
+        >
           Add
+        </Button>
+        <Button
+          className="smaller-btn"
+          variant="outlined"
+          onClick={clearFilter}
+          size="small"
+        >
+          Clear
         </Button>
       </div>
     </div>

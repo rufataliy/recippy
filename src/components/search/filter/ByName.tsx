@@ -42,13 +42,14 @@ export const ByName: React.FC = () => {
         <Button
           onClick={() => searchHandler()}
           size="large"
-          className="bg-btn"
-          fullWidth
+          className="bg-btn bigger-btn"
           type="submit"
         >
           search
         </Button>
-        <Button onClick={() => setValue("")}>Clear</Button>
+        <Button className="smaller-btn" onClick={() => setValue("")}>
+          Clear
+        </Button>
       </div>
     </div>
   );
