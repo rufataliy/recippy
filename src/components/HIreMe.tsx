@@ -22,8 +22,8 @@ export const HireMe = () => {
               This is a small project of mine inspired by my love to cooking. If
               you think we could make a great team and build awesome
               applications check out my other{" "}
-              <Link href="https:rufataliyev.com/projects">projects</Link> and{" "}
-              <Link href="https:rufataliyev.com/contact">contact</Link> me.
+              <Link href="https://rufataliyev.com/projects">projects</Link> and{" "}
+              <Link href="https://rufataliyev.com/contact">contact</Link> me.
             </Typography>
           </div>
         </div>
