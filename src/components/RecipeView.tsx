@@ -9,7 +9,7 @@ import { VideoIcon, FlagIcon, LinkIcon, CloseIcon } from "@/views/icons";
 import { ContentLoader } from "@/views";
 import { categories } from "@/asssets/img/icons";
 import { useStore } from "@/customHooks";
-import { useParams, useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 import IconButton from "@material-ui/core/IconButton";
 import "@/asssets/styles/review.css";
 
@@ -43,12 +43,14 @@ export const RecipeView: React.FC<Props> = () => {
     reviewLoading,
   } = useStore();
 
-  const { id } = useParams<Props>();
-  const { push } = useHistory();
+  const {
+    query: { recipeid },
+    push,
+  } = useRouter();
 
   useEffect(() => {
-    if (id) {
-      getRecipeById(id);
+    if (recipeid) {
+      getRecipeById(recipeid as string);
     }
     return () => resetReviewState();
   }, [resetReviewState]);
@@ -59,7 +61,7 @@ export const RecipeView: React.FC<Props> = () => {
   };
 
   return (
-    <Sidebar position={"right"} open={Boolean(id)} toggleSidebar={close}>
+    <Sidebar position={"right"} open={Boolean(recipeid)} toggleSidebar={close}>
       <div className="review-area">
         <ContentLoader loading={reviewLoading}>
           {recipe != null ? (
@@ -109,7 +111,7 @@ export const RecipeView: React.FC<Props> = () => {
                       <img
                         className="custom-icon"
                         src={
-                          categories[recipe.strCategory].img
+                          categories[recipe.strCategory]
                             ? categories[recipe.strCategory].img
                             : ""
                         }
@@ -129,6 +131,7 @@ export const RecipeView: React.FC<Props> = () => {
               </div>
             </>
           ) : null}
+          {recipe?.notfound && "couldn't find the recipe"}
         </ContentLoader>
       </div>
     </Sidebar>
