@@ -15,7 +15,7 @@ export const ByCategory = () => {
 
   useEffect(() => {
     makeApiRequest(
-      `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/list.php?c=list`,
+      `/api/category-list`,
       (data) => setCategories(data.meals),
       setLoading
     );

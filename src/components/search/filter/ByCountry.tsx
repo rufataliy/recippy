@@ -15,7 +15,7 @@ export const ByCountry = () => {
 
   useEffect(() => {
     makeApiRequest(
-      `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/list.php?a=list`,
+      `/api/country-list`,
       (data) => setCountries(data.meals),
       setLoading
     );
