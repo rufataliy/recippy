@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import MUICard from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -7,7 +8,6 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
-import { Link } from "react-router-dom";
 import { ChevronRightIcon } from "@/views/icons";
 import "@/asssets/styles/card.css";
 
@@ -39,11 +39,12 @@ export const Card: React.FC<Props> = React.memo(({ recipe }) => {
       </CardContent>
       <CardActions style={{ justifyContent: "flex-end" }}>
         <Tooltip title="See the recipe">
-          <Link
-            to={`/recipes/${idMeal}`}
-            aria-label={`read more about ${strMeal}`}
-          >
-            <Button endIcon={<ChevronRightIcon />}>View</Button>
+          <Link shallow href={`/?recipeid=${idMeal}`}>
+            <a>
+              <Button endIcon={<ChevronRightIcon />} aria-label="see more">
+                View
+              </Button>
+            </a>
           </Link>
         </Tooltip>
       </CardActions>
