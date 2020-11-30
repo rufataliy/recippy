@@ -25,6 +25,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "next-start": "next start",
+    "next-build": "next build",
+    "next-dev": "next dev",
     "eject": "react-scripts eject",
     "server": "nodemon ./server.js"
   },
