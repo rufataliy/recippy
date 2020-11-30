@@ -1,19 +1,17 @@
 import { useState, useMemo, useCallback } from "react";
 import { makeApiRequest } from "../utils";
 
-const { REACT_APP_API_KEY } = process.env;
-
 export const useGlobalState = () => {
   const [recipeList, setRecipeList] = useState<Recipe[] | null>(null);
   const [reviewBarOpen, setReviewBarOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [reviewLoading, setReviewLoading] = useState(false);
   const [reviewedRecipe, setReviewedRecipe] = useState(null);
 
   const searchByName = useMemo(
     () => (keyword: string) => {
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/search.php?s=${keyword}`,
+        `/api/search-by?keyword=${keyword}`,
         (data) => setRecipeList(data.meals),
         setLoading
       );
@@ -24,7 +22,7 @@ export const useGlobalState = () => {
   const searchByIngredients = useMemo(
     () => (ingredients: string) => {
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/filter.php?i=${ingredients}`,
+        `/api/filter-by?filterType=i&filterValue=${ingredients}`,
         (data) => setRecipeList(data.meals),
         setLoading
       );
@@ -35,7 +33,7 @@ export const useGlobalState = () => {
   const searchByCountry = useMemo(
     () => (country: string) => {
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/filter.php?a=${country}`,
+        `/api/filter-by?filterType=a&filterValue=${country}`,
         (data) => setRecipeList(data.meals),
         setLoading
       );
@@ -46,7 +44,7 @@ export const useGlobalState = () => {
   const searchByCategory = useMemo(
     () => (category: string) => {
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/filter.php?c=${category}`,
+        `/api/filter-by?filterType=c&filterValue=${category}`,
         (data) => setRecipeList(data.meals),
         setLoading
       );
@@ -57,7 +55,7 @@ export const useGlobalState = () => {
   const getRandomRecipes = useMemo(
     () => () => {
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/randomselection.php`,
+        `/api/randomRecipes`,
         (data) => setRecipeList(data.meals),
         setLoading
       );
@@ -82,7 +80,7 @@ export const useGlobalState = () => {
     () => (id: string) => {
       openReviewBar();
       makeApiRequest(
-        `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}/lookup.php?i=${id}`,
+        `/api/by-id?id=${id}`,
         (data) => setReviewedRecipe(data.meals[0]),
         setReviewLoading
       );
