@@ -10,9 +10,7 @@ export const makeApiRequest: UseApi = (url, setData, setStatus) => {
   setStatus && setStatus(true);
 
   return new Promise((resolve, reject) => {
-    fetch(url, {
-      mode: "cors",
-    })
+    fetch(url)
       .then((res) => {
         if (res.ok) {
           return res.json();
