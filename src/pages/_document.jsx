@@ -9,10 +9,56 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={"#b3e3cc"} />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          <meta charset="utf-8" />
+          <link rel="icon" type="image/png" href="/favicon-dark.svg" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="theme-color" content="#000000" />
+
+          {/* <!-- Google / Search Engine Tags --> */}
+          <meta itemprop="name" content="Recipe app" />
+          <meta
+            itemprop="description"
+            content="Recipe app to look for your next awesome dinner."
           />
+          <meta itemprop="image" content="/website-thumbnail.JPG" />
+
+          {/* <!-- Facebook Meta Tags --> */}
+          <meta property="og:url" content="https://recippy.rufat.tech" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Recipe app | look up your next delicious dinner."
+          />
+          <meta
+            property="og:description"
+            content="Recipe app to look for your next awesome dinner."
+          />
+          <meta property="og:image" content="/website-thumbnail.JPG" />
+
+          {/* <!-- Twitter Meta Tags --> */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Learning management system" />
+          <meta
+            name="twitter:description"
+            content="Recipe app to look up your next awesome dinner."
+          />
+          <meta name="twitter:image" content="/website-thumbnail.JPG" />
+          {/* <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> --> */}
+          {/* <!--
+            manifest.json provides metadata used when your web app is installed on a
+            user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+          --> */}
+          <link rel="manifest" href="/manifest.json" />
+          {/* <!--
+            Notice the use of %PUBLIC_URL% in the tags above.
+            It will be replaced with the URL of the `public` folder during the build.
+            Only files inside the `public` folder can be referenced from the HTML.
+
+            Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+            work correctly both with client-side routing and a non-root public URL.
+            Learn how to configure a non-root public URL by running `npm run build`.
+          --> */}
+          <title>Recippy</title>
         </Head>
         <body>
           <Main />
