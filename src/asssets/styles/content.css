@@ -14,7 +14,7 @@
 .content-wrapper {
   width: 65%;
   margin: 0 auto;
-  height: 100%;
+  min-height: 100%;
 }
 
 .content-wrapper > div {
