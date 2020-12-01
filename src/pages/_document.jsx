@@ -10,7 +10,11 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={"#b3e3cc"} />
           <meta charset="utf-8" />
-          <link rel="icon" type="image/png" href="/favicon-dark.svg" />
+          <link
+            rel="icon"
+            type="image/png"
+            href="https://recippy.rufat.tech/favicon-dark.svg"
+          />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
 
@@ -20,7 +24,10 @@ export default class MyDocument extends Document {
             itemprop="description"
             content="Recipe app to look for your next awesome dinner."
           />
-          <meta itemprop="image" content="/website-thumbnail.JPG" />
+          <meta
+            itemprop="image"
+            content="https://recippy.rufat.tech/website-thumbnail.JPG"
+          />
 
           {/* <!-- Facebook Meta Tags --> */}
           <meta property="og:url" content="https://recippy.rufat.tech" />
@@ -42,13 +49,19 @@ export default class MyDocument extends Document {
             name="twitter:description"
             content="Recipe app to look up your next awesome dinner."
           />
-          <meta name="twitter:image" content="/website-thumbnail.JPG" />
+          <meta
+            name="twitter:image"
+            content="https://recippy.rufat.tech/website-thumbnail.JPG"
+          />
           {/* <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> --> */}
           {/* <!--
             manifest.json provides metadata used when your web app is installed on a
             user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
           --> */}
-          <link rel="manifest" href="/manifest.json" />
+          <link
+            rel="manifest"
+            href="https://recippy.rufat.tech/manifest.json"
+          />
           {/* <!--
             Notice the use of %PUBLIC_URL% in the tags above.
             It will be replaced with the URL of the `public` folder during the build.
@@ -58,7 +71,7 @@ export default class MyDocument extends Document {
             work correctly both with client-side routing and a non-root public URL.
             Learn how to configure a non-root public URL by running `npm run build`.
           --> */}
-          <title>Recippy</title>
+          <title>Recippy | Recipe app</title>
         </Head>
         <body>
           <Main />
