@@ -19,13 +19,13 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
 
           {/* <!-- Google / Search Engine Tags --> */}
-          <meta itemprop="name" content="Recipe app" />
+          <meta name="name" content="Recipe app" />
           <meta
-            itemprop="description"
+            name="description"
             content="Recipe app to look for your next awesome dinner."
           />
           <meta
-            itemprop="image"
+            name="image"
             content="https://recippy.rufat.tech/website-thumbnail.JPG"
           />
 
@@ -40,7 +40,10 @@ export default class MyDocument extends Document {
             property="og:description"
             content="Recipe app to look for your next awesome dinner."
           />
-          <meta property="og:image" content="/website-thumbnail.JPG" />
+          <meta
+            property="og:image"
+            content="https://recippy.rufat.tech/website-thumbnail.JPG"
+          />
 
           {/* <!-- Twitter Meta Tags --> */}
           <meta name="twitter:card" content="summary_large_image" />
