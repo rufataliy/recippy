@@ -68,6 +68,10 @@
   fill: var(--primary-dark);
 }
 
+#search-area .content-wrapper {
+  height: 100%;
+}
+
 #search-area .bg-btn {
   background: var(--primary-medium);
 }
