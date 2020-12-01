@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
 import { useStore } from "@/customHooks";
+import { Typography } from "@material-ui/core";
 
 export const ByIngredient = () => {
+  const defaultErrorState = { cannotSearch: false, cannotAdd: false };
+  const cannotAdd = { cannotSearch: false, cannotAdd: true };
+  const cannotSearch = { cannotSearch: true, cannotAdd: false };
   const [ingredients, setIngredients] = useState<string[] | null>(null);
   const [value, setValue] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(defaultErrorState);
   const { searchByIngredients, getRandomRecipes } = useStore();
 
   const removeField = (ingredientToRemove: string) => {
@@ -22,7 +26,7 @@ export const ByIngredient = () => {
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setError(false);
+    setError(defaultErrorState);
     setValue(e.target.value);
   };
 
@@ -41,10 +45,10 @@ export const ByIngredient = () => {
           return [value];
         }
       });
-      setError(false);
+      setError(defaultErrorState);
       setValue("");
     } else {
-      setError(true);
+      setError(cannotAdd);
     }
   };
 
@@ -55,14 +59,14 @@ export const ByIngredient = () => {
       } else if (!Boolean(value) && ingredients) {
         return search();
       } else {
-        return setError(true);
+        return setError(cannotSearch);
       }
     }
   };
   // TODO: process multiple white spaces to be replaces with one underscore
 
   const search = () => {
-    if (!ingredients) return;
+    if (!ingredients) return setError(cannotSearch);
     const processedIngredients = ingredients
       ?.map((ingredient) => ingredient.replace(" ", "_"))
       .join(",");
@@ -72,7 +76,7 @@ export const ByIngredient = () => {
   const clearFilter = () => {
     setValue("");
     setIngredients(null);
-    setError(false);
+    setError(defaultErrorState);
     if (ingredients) {
       getRandomRecipes();
     }
@@ -84,10 +88,18 @@ export const ByIngredient = () => {
         <input
           placeholder="Add an ingredient . . ."
           value={value}
-          data-error={error}
+          data-error={error.cannotSearch}
           onChange={onChange}
           onKeyPress={handleKeyDown}
         />
+        <Typography
+          paragraph
+          className="input-error"
+          data-error={error.cannotAdd || error.cannotSearch}
+        >
+          {error.cannotAdd && "Please enter an ingredient to add"}
+          {error.cannotSearch && "Please add at least one ingredient"}
+        </Typography>
       </div>
       <div className="ingredient-chips">
         {ingredients &&
