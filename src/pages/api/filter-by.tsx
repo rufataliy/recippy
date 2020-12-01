@@ -4,7 +4,6 @@ const filterBaseUrl = `https://www.themealdb.com/api/json/v2/${process.env.API_K
 
 const handler: NextApiHandler = async (req, res) => {
   const { query } = req;
-  console.log(req.query);
   const formFiltersUrl = (query: { [key: string]: string | string[] }) => {
     const { filterType, filterValue } = query;
 
