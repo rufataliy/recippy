@@ -13,10 +13,6 @@ import { useRouter } from "next/router";
 import IconButton from "@material-ui/core/IconButton";
 import "@/asssets/styles/review.css";
 
-interface Props {
-  id?: string;
-}
-
 const mapIngredientToMeasure = (recipe: Recipe) => {
   const elements = [];
   for (let i = 1; true; i++) {
@@ -35,7 +31,7 @@ const mapIngredientToMeasure = (recipe: Recipe) => {
   return elements;
 };
 
-export const RecipeView: React.FC<Props> = () => {
+export const RecipeView: React.FC = () => {
   const {
     reviewedRecipe: recipe,
     resetReviewState,
