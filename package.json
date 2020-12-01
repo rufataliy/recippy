@@ -28,7 +28,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "next-start": "next start - 3003",
+    "next-start": "next start -p 3003",
     "next-build": "next build",
     "next-dev": "next dev",
     "eject": "react-scripts eject",
