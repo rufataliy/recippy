@@ -154,10 +154,8 @@
 
 #search-area .form-control {
   margin-top: var(--margin-sm);
-}
-
-#search-area .form-control {
   display: flex;
+  flex-direction: column;
 }
 
 #search-area .ingredient-section .form-control button {

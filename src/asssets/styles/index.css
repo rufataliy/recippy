@@ -109,6 +109,11 @@ button {
   overflow-x: auto;
 }
 
+.input-error {
+  color: var(--primary-fail);
+  margin-top: var(--margin-xs) !important;
+}
+
 @media screen and (min-width: 501px) {
   .hide-on-large {
     display: none !important;
