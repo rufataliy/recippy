@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
 import { useStore } from "@/customHooks";
+import { Typography } from "@material-ui/core";
 
 export const ByName: React.FC = () => {
   const { searchByName, getRandomRecipes } = useStore();
+  const [error, setError] = useState(false);
   const [value, setValue] = useState("");
 
   useEffect(() => {
@@ -13,12 +15,15 @@ export const ByName: React.FC = () => {
   }, [value, getRandomRecipes]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError(false);
     setValue(e.target.value);
   };
 
   const searchHandler = () => {
     if (Boolean(value)) {
       return searchByName(value);
+    } else {
+      setError(true);
     }
   };
 
@@ -34,9 +39,14 @@ export const ByName: React.FC = () => {
         <input
           placeholder="Enter meal name . . ."
           onKeyPress={handleKeyDown}
+          data-error={error}
           value={value}
+          required
           onChange={onChange}
         />
+        <Typography paragraph className="input-error" data-error={error}>
+          {error && "Please enter a meal name"}
+        </Typography>
       </div>
       <div className="btn-group">
         <Button
