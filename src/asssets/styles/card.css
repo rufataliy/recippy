@@ -23,6 +23,22 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.card-details {
+  padding: 0 16px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card-ingredients {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.card-ingredients span {
+  color: var(--primary-dark);
+}
 
 .card-short-info {
   height: 70px;
