@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import { makeApiRequest } from "@/utils";
 import { useStore } from "@/customHooks";
 import { ContentLoader } from "@/views";
+import { COUNTRY, SEARCH_BTN } from "@/common/testIds";
 
 export const ByCountry = () => {
   const [countries, setCountries] = useState<Area[] | null>(null);
@@ -59,9 +60,10 @@ export const ByCountry = () => {
                 className="filter-tab-header"
                 aria-label="scrollable auto tabs example"
               >
-                {countries.map((country) => {
+                {countries.map((country, index) => {
                   return (
                     <Tab
+                      data-testid={COUNTRY + index}
                       className="tab-btn"
                       label={country.strArea}
                       value={country.strArea}
@@ -79,6 +81,7 @@ export const ByCountry = () => {
           size="large"
           className="bg-btn bigger-btn"
           type="submit"
+          data-testid={SEARCH_BTN}
         >
           search
         </Button>

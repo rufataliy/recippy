@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import { makeApiRequest } from "@/utils";
 import { useStore } from "@/customHooks";
 import { ContentLoader } from "@/views";
+import { CATEGORY, SEARCH_BTN } from "@/common/testIds";
 
 export const ByCategory = () => {
   const [categories, setCategories] = useState<Category[] | null>(null);
@@ -61,17 +62,19 @@ export const ByCategory = () => {
                 className="filter-tab-header"
                 aria-label="scrollable auto tabs example"
               >
-                {categories.map((category) => {
+                {categories.map((category, index) => {
                   if (category) {
                     return (
                       <Tab
+                        key={index}
+                        data-testid={CATEGORY + index}
                         className="tab-btn"
                         label={category.strCategory}
                         value={category.strCategory}
                       />
                     );
                   } else {
-                    return 0;
+                    return null;
                   }
                 })}
               </Tabs>
@@ -83,6 +86,7 @@ export const ByCategory = () => {
         <Button
           onClick={() => searchHandler()}
           size="large"
+          data-testid={SEARCH_BTN}
           className="bg-btn bigger-btn"
           type="submit"
         >
