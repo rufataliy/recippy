@@ -1,0 +1,15 @@
+export const store: DefaultContext = {
+  getRandomRecipes: jest.fn(),
+  getRecipeById: jest.fn(),
+  searchByName: jest.fn(),
+  searchByCountry: jest.fn(),
+  searchByCategory: jest.fn(),
+  searchByIngredients: jest.fn(),
+  resetReviewState: jest.fn(),
+  setRecipeList: jest.fn(),
+  loading: false,
+  recipeList: null,
+  reviewBarOpen: false,
+  reviewLoading: false,
+  reviewedRecipe: null,
+};
