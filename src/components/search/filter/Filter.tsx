@@ -14,28 +14,6 @@ const INGREDIENTS = "ingredients";
 const COUNTRIES = "countries";
 const NAME = "name";
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  selectedTab: string;
-  tabName: string;
-}
-
-function TabPanel(props: TabPanelProps) {
-  const { children, selectedTab, tabName, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={tabName !== selectedTab}
-      id={`scrollable-auto-tabpanel-${tabName}`}
-      aria-labelledby={`scrollable-auto-tab-${tabName}`}
-      {...other}
-    >
-      {tabName === selectedTab && children}
-    </div>
-  );
-}
-
 export function Filter() {
   const [selectedTab, setSelectedTab] = useState(NAME);
   const [collapsed, setCollapsed] = useState(false);
@@ -117,5 +95,27 @@ export function Filter() {
         </div>
       </div>
     </>
+  );
+}
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  selectedTab: string;
+  tabName: string;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, selectedTab, tabName, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={tabName !== selectedTab}
+      id={`scrollable-auto-tabpanel-${tabName}`}
+      aria-labelledby={`scrollable-auto-tab-${tabName}`}
+      {...other}
+    >
+      {tabName === selectedTab && children}
+    </div>
   );
 }
