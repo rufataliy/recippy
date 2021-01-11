@@ -7,6 +7,7 @@ import { makeApiRequest } from "@/utils";
 import { useStore } from "@/customHooks";
 import { ContentLoader } from "@/views";
 import { COUNTRY, SEARCH_BTN } from "@/common/testIds";
+import { API_COUNTRY_LIST } from "@/common/api-endpoints";
 
 export const ByCountry = () => {
   const [countries, setCountries] = useState<Area[] | null>(null);
@@ -16,7 +17,7 @@ export const ByCountry = () => {
 
   useEffect(() => {
     makeApiRequest(
-      `/api/country-list`,
+      API_COUNTRY_LIST,
       (data) => setCountries(data.meals),
       setLoading
     );

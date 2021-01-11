@@ -7,6 +7,7 @@ import { makeApiRequest } from "@/utils";
 import { useStore } from "@/customHooks";
 import { ContentLoader } from "@/views";
 import { CATEGORY, SEARCH_BTN } from "@/common/testIds";
+import { API_CATEGORY_LIST } from "@/common/api-endpoints";
 
 export const ByCategory = () => {
   const [categories, setCategories] = useState<Category[] | null>(null);
@@ -16,7 +17,7 @@ export const ByCategory = () => {
 
   useEffect(() => {
     makeApiRequest(
-      `/api/category-list`,
+      API_CATEGORY_LIST,
       (data) => setCategories(data.meals),
       setLoading
     );
