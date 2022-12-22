@@ -11,7 +11,7 @@ import { API_CATEGORY_LIST } from "@/common/api-endpoints";
 
 export const ByCategory = () => {
   const [categories, setCategories] = useState<Category[] | null>(null);
-  const [selectedTab, setSelectedTab] = useState<string | null>(null);
+  const [selectedTab, setSelectedTab] = useState<string | false>(false);
   const { searchByCategory, getRandomRecipes } = useStore();
   const [loading, setLoading] = useState(true);
 
@@ -33,7 +33,7 @@ export const ByCategory = () => {
 
   const clearFilter = () => {
     if (selectedTab) {
-      setSelectedTab(null);
+      setSelectedTab(false);
       getRandomRecipes();
     }
   };

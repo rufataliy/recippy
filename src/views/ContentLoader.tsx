@@ -1,5 +1,6 @@
 import React from "react";
 import { loader } from "@/asssets/img";
+import { LOADER } from "@/common/testIds";
 
 interface Props {
   loading: boolean;
@@ -7,7 +8,7 @@ interface Props {
 
 export const ContentLoader: React.FC<Props> = ({ children, loading }) => {
   return loading ? (
-    <img className="loader" src={loader} alt="loader" />
+    <img className="loader" data-testid={LOADER} src={loader} alt="loader" />
   ) : (
     <>{children}</>
   );

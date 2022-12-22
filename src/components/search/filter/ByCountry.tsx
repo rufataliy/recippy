@@ -11,7 +11,7 @@ import { API_COUNTRY_LIST } from "@/common/api-endpoints";
 
 export const ByCountry = () => {
   const [countries, setCountries] = useState<Area[] | null>(null);
-  const [selectedTab, setSelectedTab] = useState<string | null>(null);
+  const [selectedTab, setSelectedTab] = useState<string | false>(false);
   const { searchByCountry, getRandomRecipes } = useStore();
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,7 @@ export const ByCountry = () => {
 
   const clearFilter = () => {
     if (selectedTab) {
-      setSelectedTab(null);
+      setSelectedTab(false);
       getRandomRecipes();
     }
   };
@@ -64,6 +64,7 @@ export const ByCountry = () => {
                 {countries.map((country, index) => {
                   return (
                     <Tab
+                      key={index}
                       data-testid={COUNTRY + index}
                       className="tab-btn"
                       label={country.strArea}

@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  act,
-  render,
-  waitFor,
-  screen,
-  fireEvent,
-} from "@testing-library/react";
+import { act, render, screen, fireEvent } from "@testing-library/react";
 import { StateProvider, store as mockStore } from "@/common/mockGlobalState";
 import {
   ADD_BTN,
@@ -23,14 +17,11 @@ describe("ByIngredient", () => {
   it("Should search by ingredient", () => {
     const spy = jest.spyOn(mockStore, "searchByIngredients");
 
-    act(() => {
-      render(
-        <StateProvider>
-          <ByIngredient />
-        </StateProvider>
-      );
-    });
-    waitFor(() => {}, { timeout: 2000 });
+    render(
+      <StateProvider>
+        <ByIngredient />
+      </StateProvider>
+    );
 
     const input = screen.getByTestId(SEARCH_INPUT);
 
