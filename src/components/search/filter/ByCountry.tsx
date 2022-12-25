@@ -6,16 +6,18 @@ import Button from "@material-ui/core/Button";
 import { makeApiRequest } from "@/utils";
 import { useStore } from "@/customHooks";
 import { ContentLoader } from "@/views";
+import { COUNTRY, SEARCH_BTN } from "@/common/testIds";
+import { API_COUNTRY_LIST } from "@/common/api-endpoints";
 
 export const ByCountry = () => {
   const [countries, setCountries] = useState<Area[] | null>(null);
-  const [selectedTab, setSelectedTab] = useState<string | null>(null);
+  const [selectedTab, setSelectedTab] = useState<string | false>(false);
   const { searchByCountry, getRandomRecipes } = useStore();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     makeApiRequest(
-      `/api/country-list`,
+      API_COUNTRY_LIST,
       (data) => setCountries(data.meals),
       setLoading
     );
@@ -25,7 +27,7 @@ export const ByCountry = () => {
 
   const clearFilter = () => {
     if (selectedTab) {
-      setSelectedTab(null);
+      setSelectedTab(false);
       getRandomRecipes();
     }
   };
@@ -59,9 +61,11 @@ export const ByCountry = () => {
                 className="filter-tab-header"
                 aria-label="scrollable auto tabs example"
               >
-                {countries.map((country) => {
+                {countries.map((country, index) => {
                   return (
                     <Tab
+                      key={index}
+                      data-testid={COUNTRY + index}
                       className="tab-btn"
                       label={country.strArea}
                       value={country.strArea}
@@ -79,6 +83,7 @@ export const ByCountry = () => {
           size="large"
           className="bg-btn bigger-btn"
           type="submit"
+          data-testid={SEARCH_BTN}
         >
           search
         </Button>

@@ -3,6 +3,12 @@ import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
 import { useStore } from "@/customHooks";
 import { Typography } from "@material-ui/core";
+import {
+  ADD_BTN,
+  INGREDIENT_,
+  SEARCH_BTN,
+  SEARCH_INPUT,
+} from "@/common/testIds";
 
 export const ByIngredient = () => {
   const defaultErrorState = { cannotSearch: false, cannotAdd: false };
@@ -86,6 +92,7 @@ export const ByIngredient = () => {
     <div className="ingredient-section">
       <div className="form-control">
         <input
+          data-testid={SEARCH_INPUT}
           placeholder="Add an ingredient . . ."
           value={value}
           data-error={error.cannotSearch}
@@ -103,9 +110,11 @@ export const ByIngredient = () => {
       </div>
       <div className="ingredient-chips">
         {ingredients &&
-          ingredients.map((ingredient) => {
+          ingredients.map((ingredient, index) => {
             return (
               <Chip
+                key={index}
+                data-testid={INGREDIENT_ + ingredient}
                 label={ingredient}
                 onDelete={() => removeField(ingredient)}
                 variant="outlined"
@@ -115,18 +124,20 @@ export const ByIngredient = () => {
       </div>
       <div className="btn-group">
         <Button
-          onClick={search}
           size="large"
           className="bg-btn bigger-btn"
           type="submit"
+          onClick={search}
+          data-testid={SEARCH_BTN}
         >
           search
         </Button>
         <Button
           className="smaller-btn"
           variant="outlined"
-          onClick={addIngredient}
           size="small"
+          onClick={addIngredient}
+          data-testid={ADD_BTN}
         >
           Add
         </Button>

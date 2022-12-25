@@ -6,16 +6,18 @@ import Button from "@material-ui/core/Button";
 import { makeApiRequest } from "@/utils";
 import { useStore } from "@/customHooks";
 import { ContentLoader } from "@/views";
+import { CATEGORY, SEARCH_BTN } from "@/common/testIds";
+import { API_CATEGORY_LIST } from "@/common/api-endpoints";
 
 export const ByCategory = () => {
   const [categories, setCategories] = useState<Category[] | null>(null);
-  const [selectedTab, setSelectedTab] = useState<string | null>(null);
+  const [selectedTab, setSelectedTab] = useState<string | false>(false);
   const { searchByCategory, getRandomRecipes } = useStore();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     makeApiRequest(
-      `/api/category-list`,
+      API_CATEGORY_LIST,
       (data) => setCategories(data.meals),
       setLoading
     );
@@ -31,7 +33,7 @@ export const ByCategory = () => {
 
   const clearFilter = () => {
     if (selectedTab) {
-      setSelectedTab(null);
+      setSelectedTab(false);
       getRandomRecipes();
     }
   };
@@ -61,17 +63,19 @@ export const ByCategory = () => {
                 className="filter-tab-header"
                 aria-label="scrollable auto tabs example"
               >
-                {categories.map((category) => {
+                {categories.map((category, index) => {
                   if (category) {
                     return (
                       <Tab
+                        key={index}
+                        data-testid={CATEGORY + index}
                         className="tab-btn"
                         label={category.strCategory}
                         value={category.strCategory}
                       />
                     );
                   } else {
-                    return 0;
+                    return null;
                   }
                 })}
               </Tabs>
@@ -83,6 +87,7 @@ export const ByCategory = () => {
         <Button
           onClick={() => searchHandler()}
           size="large"
+          data-testid={SEARCH_BTN}
           className="bg-btn bigger-btn"
           type="submit"
         >

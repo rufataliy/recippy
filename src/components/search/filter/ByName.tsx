@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
 import { useStore } from "@/customHooks";
 import { Typography } from "@material-ui/core";
+import { SEARCH_INPUT, SEARCH_BTN } from "@/common/testIds";
 
 export const ByName: React.FC = () => {
   const { searchByName, getRandomRecipes } = useStore();
@@ -43,6 +44,7 @@ export const ByName: React.FC = () => {
           value={value}
           required
           onChange={onChange}
+          data-testid={SEARCH_INPUT}
         />
         <Typography paragraph className="input-error" data-error={error}>
           {error && "Please enter a meal name"}
@@ -54,6 +56,7 @@ export const ByName: React.FC = () => {
           size="large"
           className="bg-btn bigger-btn"
           type="submit"
+          data-testid={SEARCH_BTN}
         >
           search
         </Button>
